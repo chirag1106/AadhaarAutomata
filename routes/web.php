@@ -18,4 +18,6 @@ Route::get('/', [ViewChatBot::class, 'page'] )->name('initial-page');
 
 Route::post('/aadhaarService/{menu?}', [getRequestController::class, 'getAadharService']);
 
+Route::post('/getInputQuery', [getRequestController::class, 'processQuery']);
+
 

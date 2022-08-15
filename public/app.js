@@ -1,4 +1,5 @@
 $("doument").ready(function () {
+    "use strict";
     $.ajaxSetup({
         headers: {
             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
@@ -38,27 +39,25 @@ $("doument").ready(function () {
                     ? "send.png"
                     : "send.png";
             $(".chat-send").attr("src", src);
-            if(sessionStorage.getItem('proceed')){
+            if (sessionStorage.getItem("proceed")) {
                 $(".welcome-screen").fadeOut("1000", function () {
-                $(this).css({ display: "none" });
-            });
-            }
-            else{
+                    $(this).css({ display: "none" });
+                });
+            } else {
                 $(".welcome-screen").slideDown("slow");
             }
             $("#autobot-body").slideDown("slow");
-            // if()
+            $(".auto-launcher").css("display", "none");
+            $(".formQuery-btn").css("display", "block");
         },
     });
 
     $(".btn-wel-close").on({
         click: function () {
-            // $(".welcome-screen").fadeOut("1000", function () {
-            //     $(this).css({ display: "none" });
-            // });
             $("#autobot-body").fadeOut("1000", function () {
                 $(this).css({ display: "none" });
                 $(".chat-send").attr("src", "bot.png");
+                $(".auto-launcher").css("display", "block");
             });
         },
     });
@@ -68,11 +67,15 @@ $("doument").ready(function () {
             $("#autobot-body").fadeOut("1000", function () {
                 $(this).css({ display: "none" });
                 $(".chat-send").attr("src", "bot.png");
+                $(".auto-launcher").css("display", "block");
             });
         },
     });
 
     var value = 0;
+    var target = ".msg-body";
+    var formName = "#queryForm";
+
     $(".service").click(function (e) {
         e.preventDefault();
         if (sessionStorage.getItem("verified")) {
@@ -86,40 +89,66 @@ $("doument").ready(function () {
                 complete: function () {},
             });
         } else {
-            var $target = $(".msg-body");
-            $target.animate({ scrollTop: $target.height() }, 1000);
             var msg =
                 '<div class="system-msg">Please! Enter you phone number?</div>';
             if (value == 0) {
-                $(".msg-body").append(msg);
+                target_content(target, msg);
                 value = value + 1;
-                $('#form-input').attr('data-key', 'phone').attr('type', 'number');
+                $("#form-input").attr("type", "number");
+                $("#input-type").attr("value", "phone");
+                $("#queryForm").submit(function (e) {
+                    e.preventDefault();
+                    processInput(formName);
+                });
             }
         }
     });
-    $(function processInput() {
-        var form = $("#inputForm");
-        $.ajax({
-            url: $(this).attr("action"),
-            type: "post",
-            data: $(this).serialize(),
-            beforeSend: function () {
 
+    function target_content(target_body, msg) {
+        $(target_body).animate({ scrollTop: $(target_body).height() }, 1000);
+        $(target_body).append(msg);
+    }
+
+    function processInput(formClass) {
+        var form = $(formClass);
+        $.ajax({
+            url: form.attr("action"),
+            type: "post",
+            data: form.serialize(),
+            beforeSend: function () {
+                var input_val = $("#form-input").val();
+                if (input_val != '') {
+                    var msg =
+                        "<div class='user-msg loading-spin'>" +
+                        input_val +
+                        "<div class='loader'></div></div>";
+                        target_content(target, msg);
+                }
+                // } else {
+                //     var msg =
+                //         "<div class='user-msg loading-spin'>" +
+                //         input_val +
+                //         "</div>";
+                // }
             },
-            success: function (response) {},
-            error: function (xhr, ajaxOptions, thrownErro) {},
+            success: function (response) {
+                form.trigger("reset");
+            },
+            error: function (xhr, ajaxOptions, thrownErro) {
+                var error = JSON.parse(xhr.responseText);
+                var msg = "<div class='user-msg'>" + error.message + "</div>";
+                target_content(target, msg);
+            },
             complete: function () {},
         });
-    });
+    }
 
-    $('.proceed').click(function(){
-        if(sessionStorage.getItem('proceed') == null){
-            sessionStorage.setItem('proceed','toConverse');
+    $(".proceed").click(function () {
+        if (sessionStorage.getItem("proceed") == null) {
+            sessionStorage.setItem("proceed", "toConverse");
             $(".welcome-screen").fadeOut("1000", function () {
                 $(this).css({ display: "none" });
             });
         }
     });
-
-
 });
