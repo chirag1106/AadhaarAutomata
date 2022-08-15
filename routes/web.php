@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ViewChatBot;
+use App\Http\Controllers\getRequestController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,4 +15,7 @@ use App\Http\Controllers\ViewChatBot;
 */
 
 Route::get('/', [ViewChatBot::class, 'page'] )->name('initial-page');
+
+Route::post('/aadhaarService/{menu?}', [getRequestController::class, 'getAadharService']);
+
 
