@@ -28,7 +28,7 @@
     <!-- button start -->
 
     <div class="auto-launcher row">
-        <button class="chat-btn">
+        <button class="chat-btn ">
             <img class="chat-send" src="bot.png" alt="">
         </button>
     </div>
@@ -40,7 +40,7 @@
         <!-- welcome screem -->
 
 
-        {{-- <div class="welcome-screen row flex justify-content-evenly">
+        <div class="welcome-screen row flex justify-content-evenly">
             <div class="col-12 close ms-0 me-auto">
                 <button class="btn btn-wel-close inv">
                     <img src="./close.png" alt="">
@@ -61,7 +61,7 @@
                 <span>you?</span>
             </div>
             <div class="col-12 text-center">
-                <button class="btn hvr btn-lg border rounded-pill hello-2 px-5 ">Let me know!</button>
+                <button class="btn hvr btn-lg border rounded-pill hello-2 px-5 proceed">Let me know!</button>
             </div>
 
             <div class="beta-version text-white text-center my-auto">
@@ -69,7 +69,7 @@
                     Beta Version 0.1
                 </span>
             </div>
-        </div> --}}
+        </div>
 
 
         <!-- welcome screen end -->

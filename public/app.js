@@ -38,15 +38,27 @@ $("doument").ready(function () {
                     ? "send.png"
                     : "send.png";
             $(".chat-send").attr("src", src);
-            $(".welcome-screen").slideDown("slow");
+            if(sessionStorage.getItem('proceed')){
+                $(".welcome-screen").fadeOut("1000", function () {
+                $(this).css({ display: "none" });
+            });
+            }
+            else{
+                $(".welcome-screen").slideDown("slow");
+            }
             $("#autobot-body").slideDown("slow");
+            // if()
         },
     });
 
     $(".btn-wel-close").on({
         click: function () {
-            $(".welcome-screen").fadeOut("1000", function () {
+            // $(".welcome-screen").fadeOut("1000", function () {
+            //     $(this).css({ display: "none" });
+            // });
+            $("#autobot-body").fadeOut("1000", function () {
                 $(this).css({ display: "none" });
+                $(".chat-send").attr("src", "bot.png");
             });
         },
     });
@@ -92,11 +104,22 @@ $("doument").ready(function () {
             type: "post",
             data: $(this).serialize(),
             beforeSend: function () {
-                
+
             },
             success: function (response) {},
             error: function (xhr, ajaxOptions, thrownErro) {},
             complete: function () {},
         });
     });
+
+    $('.proceed').click(function(){
+        if(sessionStorage.getItem('proceed') == null){
+            sessionStorage.setItem('proceed','toConverse');
+            $(".welcome-screen").fadeOut("1000", function () {
+                $(this).css({ display: "none" });
+            });
+        }
+    });
+
+
 });

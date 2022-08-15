@@ -1,13 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
-
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
 
 * {
     padding: 0%;
     margin: 0%;
     box-sizing: border-box;
 }
-
 
 /* welcome screen */
 
@@ -20,16 +17,13 @@
     width: 400px;
     height: 600px;
     border-radius: 28px;
-    box-shadow:
-        0px 2.5px 1.8px 3px rgba(0, 0, 0, 0.02),
+    box-shadow: 0px 2.5px 1.8px 3px rgba(0, 0, 0, 0.02),
         0px 6.1px 4.4px 3px rgba(0, 0, 0, 0.028),
         0px 6.5px 8.3px 3px rgba(0, 0, 0, 0.035),
         0px 7.5px 14.7px 3px rgba(0, 0, 0, 0.042),
         0px 8.4px 27.6px 3px rgba(0, 0, 0, 0.05),
         0px 9.2px 66px 3px rgba(0, 0, 0, 0.07);
-
 }
-
 
 .welcome-screen {
     position: absolute;
@@ -63,14 +57,14 @@
     line-height: 33px;
     font-size: 30px;
     color: #ffffff;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
 .hello-2 {
     line-height: 33px;
     font-size: 30px;
     color: #622ae8 !important;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     background: rgba(255, 255, 255, 0.616) !important;
 }
 
@@ -85,8 +79,6 @@
     /* filter: blur(5px); */
 }
 
-
-
 .circle-inner {
     display: flex;
     align-items: center;
@@ -97,7 +89,6 @@
     background-color: rgba(255, 255, 255, 0.308);
     /* filter: blur(20px); */
 }
-
 
 .circle-inner img {
     padding-bottom: 10px;
@@ -136,12 +127,9 @@
 
 .auto-launcher button {
     z-index: 10 !important;
-    box-shadow:
-        0px 0px 2.8px rgba(0, 0, 0, 0.053),
-        0px 0px 6.7px rgba(0, 0, 0, 0.077),
-        0px 0px 12.5px rgba(0, 0, 0, 0.095),
-        0px 0px 22.3px rgba(0, 0, 0, 0.113),
-        0px 0px 41.8px rgba(0, 0, 0, 0.137),
+    box-shadow: 0px 0px 2.8px rgba(0, 0, 0, 0.053),
+        0px 0px 6.7px rgba(0, 0, 0, 0.077), 0px 0px 12.5px rgba(0, 0, 0, 0.095),
+        0px 0px 22.3px rgba(0, 0, 0, 0.113), 0px 0px 41.8px rgba(0, 0, 0, 0.137),
         0px 0px 100px rgba(0, 0, 0, 0.19);
     position: absolute;
     bottom: 50px;
@@ -154,11 +142,10 @@
     background-color: #622ae8;
 }
 
-
 .chatbot {
     margin: 0 !important;
     height: 100%;
-    width: 100%
+    width: 100%;
 }
 
 .bot-header {
@@ -170,9 +157,15 @@
     flex-direction: row;
     background-image: url("/wave.png");
     background-size: cover;
-    background-image: linear-gradient(to right bottom, #622ae8, #7926e9, #8e21ea, #a01beb, #b212eb);
-    box-shadow:
-        0px 2.5px 1.8px 3px rgba(0, 0, 0, 0.02),
+    background-image: linear-gradient(
+        to right bottom,
+        #622ae8,
+        #7926e9,
+        #8e21ea,
+        #a01beb,
+        #b212eb
+    );
+    box-shadow: 0px 2.5px 1.8px 3px rgba(0, 0, 0, 0.02),
         0px 6.1px 4.4px 3px rgba(0, 0, 0, 0.028),
         0px 6.5px 8.3px 3px rgba(0, 0, 0, 0.035),
         0px 7.5px 14.7px 3px rgba(0, 0, 0, 0.042),
@@ -195,7 +188,7 @@
     height: 60px;
     width: 60px;
     border-radius: 50%;
-    margin-left: 20px
+    margin-left: 20px;
 }
 
 .bot-id img {
@@ -343,7 +336,28 @@
     width: 35px;
 }
 
-.bg-1{background:#fcedec ;}
-.bg-2{background: #adcce9;}
-.bg-3{background: #e3fff0;}
-.bg-4{background: #faeb95;}
+.bg-1 {
+    background: #fcedec;
+}
+.bg-2 {
+    background: #adcce9;
+}
+.bg-3 {
+    background: #e3fff0;
+}
+.bg-4 {
+    background: #faeb95;
+}
+
+/* Chirag styles */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    opacity: 0;
+}
