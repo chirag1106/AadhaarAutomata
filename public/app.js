@@ -72,6 +72,24 @@ $("doument").ready(function () {
         },
     });
 
+    $('.chat-btnx').on({
+        mouseenter: function () {
+            var bg =
+                $(this).css("background-color") === "white"
+                    ? "#622ae8"
+                    : "white";
+            $(this).css("background-color", bg);
+        },
+
+        mouseleave: function () {
+            var bg1 =
+                $(this).css("background-color") === "#622ae8"
+                    ? "white"
+                    : "#622ae8";
+            $(this).css("background-color", bg1);
+        }
+    });
+
     var value = 0;
     var target = ".msg-body";
     var formName = "#queryForm";
