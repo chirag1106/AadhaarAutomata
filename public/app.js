@@ -81,7 +81,8 @@ $("doument").ready(function () {
         if (sessionStorage.getItem("verified")) {
             var link = $(this).attr("href");
             $.ajax({
-                url: link + "/" + $(this).attr("data-text"),
+                url: link,
+                data: $(this).attr("data-text"),
                 type: "post",
                 beforeSend: function () {},
                 success: function (response) {},
@@ -90,7 +91,7 @@ $("doument").ready(function () {
             });
         } else {
             var msg =
-                '<div class="system-msg">Please! Enter you phone number?</div>';
+                '<div class="system-msg">Please! Enter your phone number?</div>';
             if (value == 0) {
                 target_content(target, msg);
                 value = value + 1;
@@ -117,12 +118,12 @@ $("doument").ready(function () {
             data: form.serialize(),
             beforeSend: function () {
                 var input_val = $("#form-input").val();
-                if (input_val != '') {
+                if (input_val != "") {
                     var msg =
                         "<div class='user-msg loading-spin'>" +
                         input_val +
                         "<div class='loader'></div></div>";
-                        target_content(target, msg);
+                    target_content(target, msg);
                 }
                 // } else {
                 //     var msg =
@@ -132,14 +133,25 @@ $("doument").ready(function () {
                 // }
             },
             success: function (response) {
+                var output = JSON.parse(response);
+                // console.log(output);
+                var msg =
+                    "<div class='system-msg loading-spin'>" +
+                    output.message +
+                    "</div>";
+                target_content(target, msg);
+
                 form.trigger("reset");
             },
             error: function (xhr, ajaxOptions, thrownErro) {
                 var error = JSON.parse(xhr.responseText);
-                var msg = "<div class='user-msg'>" + error.message + "</div>";
+                var msg = "<div class='system-msg'>" + error.message + "</div>";
                 target_content(target, msg);
             },
-            complete: function () {},
+            complete: function () {
+                // $("#form-input").attr("type", "text");
+                // $("#input-type").attr("value", "");
+            },
         });
     }
 

@@ -269,6 +269,7 @@
     border-radius: 9px;
     /* background: #e6e6e6; */
     background: #e7dbff;
+    font-size: 0.858769rem;
 }
 
 .user-msg {
@@ -279,6 +280,12 @@
     margin-bottom: 8px;
     border-radius: 9px;
     background: #e2f1fa;
+    font-size: 0.85rem;
+    font-size: 0.858769rem;
+}
+
+.service{
+    font-size: 0.858769rem;
 }
 
 .msg-input {

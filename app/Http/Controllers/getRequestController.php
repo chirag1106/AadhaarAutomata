@@ -40,18 +40,18 @@ class getRequestController extends Controller
                 ],
                 [
                     'query_type.required' => 'Sorry! can not process your query',
-                    'input_query.required' => 'Please enter your query',
+                    'input_query.required' => 'Please enter your Phone Number',
                     'input_query.min' => 'Kindly enter 10 digits Phone Number',
                     'input_query.max' => 'Kindly enter 10 digits only'
                 ]
             );
             $otp = rand(100000, 999999);
-            $this->send($otp,$request['input_query']);
+            $this->sendOTP($otp, $request['input_query']);
         }
-
     }
 
-    public function sendOTP($otp, $phone_number){
+    public function sendOTP($otp, $phone_number)
+    {
         $fields = array(
             "variables_values" => $otp,
             "route" => "otp",
@@ -61,22 +61,22 @@ class getRequestController extends Controller
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-          CURLOPT_URL => "https://www.fast2sms.com/dev/bulkV2",
-          CURLOPT_RETURNTRANSFER => true,
-          CURLOPT_ENCODING => "",
-          CURLOPT_MAXREDIRS => 10,
-          CURLOPT_TIMEOUT => 30,
-          CURLOPT_SSL_VERIFYHOST => 0,
-          CURLOPT_SSL_VERIFYPEER => 0,
-          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-          CURLOPT_CUSTOMREQUEST => "POST",
-          CURLOPT_POSTFIELDS => json_encode($fields),
-          CURLOPT_HTTPHEADER => array(
-            "authorization: vRyBF39AqeCfM8otjEPcl0zQKmhd5sLJ6UOpGgZWi1YxDVITNSRbtU4fOYpV1whlzLSq60cKFmXoBNZI",
-            "accept: */*",
-            "cache-control: no-cache",
-            "content-type: application/json"
-          ),
+            CURLOPT_URL => "https://www.fast2sms.com/dev/bulkV2",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_SSL_VERIFYHOST => 0,
+            CURLOPT_SSL_VERIFYPEER => 0,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => json_encode($fields),
+            CURLOPT_HTTPHEADER => array(
+                "authorization: vRyBF39AqeCfM8otjEPcl0zQKmhd5sLJ6UOpGgZWi1YxDVITNSRbtU4fOYpV1whlzLSq60cKFmXoBNZI",
+                "accept: */*",
+                "cache-control: no-cache",
+                "content-type: application/json"
+            ),
         ));
 
         $response = curl_exec($curl);
@@ -85,51 +85,52 @@ class getRequestController extends Controller
         curl_close($curl);
 
         if ($err) {
-          echo "cURL Error #:" . $err;
+            echo "cURL Error #:" . $err;
         } else {
-          echo $response;
+            echo $response;
         }
     }
 
-    public function send($otp, $phone_number){
+    public function send($otp, $phone_number)
+    {
 
-$fields = array(
-    "sender_id" => "FastSM",
-    "message" => "Your OTP: ".$otp,
-    "route" => "v3",
-    "numbers" => $phone_number,
-);
+        $fields = array(
+            "sender_id" => "FastSM",
+            "message" => "Your OTP: " . $otp,
+            "route" => "v3",
+            "numbers" => $phone_number,
+        );
 
-$curl = curl_init();
+        $curl = curl_init();
 
-curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://www.fast2sms.com/dev/bulkV2",
-  CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_ENCODING => "",
-  CURLOPT_MAXREDIRS => 10,
-  CURLOPT_TIMEOUT => 30,
-  CURLOPT_SSL_VERIFYHOST => 0,
-  CURLOPT_SSL_VERIFYPEER => 0,
-  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => "POST",
-  CURLOPT_POSTFIELDS => json_encode($fields),
-  CURLOPT_HTTPHEADER => array(
-    "authorization: vRyBF39AqeCfM8otjEPcl0zQKmhd5sLJ6UOpGgZWi1YxDVITNSRbtU4fOYpV1whlzLSq60cKFmXoBNZI",
-    "accept: */*",
-    "cache-control: no-cache",
-    "content-type: application/json"
-  ),
-));
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://www.fast2sms.com/dev/bulkV2",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_SSL_VERIFYHOST => 0,
+            CURLOPT_SSL_VERIFYPEER => 0,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => json_encode($fields),
+            CURLOPT_HTTPHEADER => array(
+                "authorization: vRyBF39AqeCfM8otjEPcl0zQKmhd5sLJ6UOpGgZWi1YxDVITNSRbtU4fOYpV1whlzLSq60cKFmXoBNZI",
+                "accept: */*",
+                "cache-control: no-cache",
+                "content-type: application/json"
+            ),
+        ));
 
-$response = curl_exec($curl);
-$err = curl_error($curl);
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
 
-curl_close($curl);
+        curl_close($curl);
 
-if ($err) {
-  echo "cURL Error #:" . $err;
-} else {
-  echo $response;
-}
+        if ($err) {
+            echo "cURL Error #:" . $err;
+        } else {
+            echo $response;
+        }
     }
 }
