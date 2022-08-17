@@ -72,7 +72,7 @@ class getRequestController extends Controller
             CURLOPT_CUSTOMREQUEST => "POST",
             CURLOPT_POSTFIELDS => json_encode($fields),
             CURLOPT_HTTPHEADER => array(
-                "authorization: vRyBF39AqeCfM8otjEPcl0zQKmhd5sLJ6UOpGgZWi1YxDVITNSRbtU4fOYpV1whlzLSq60cKFmXoBNZI",
+                "authorization: YOUR_API_KEY",
                 "accept: */*",
                 "cache-control: no-cache",
                 "content-type: application/json"
@@ -115,7 +115,7 @@ class getRequestController extends Controller
             CURLOPT_CUSTOMREQUEST => "POST",
             CURLOPT_POSTFIELDS => json_encode($fields),
             CURLOPT_HTTPHEADER => array(
-                "authorization: vRyBF39AqeCfM8otjEPcl0zQKmhd5sLJ6UOpGgZWi1YxDVITNSRbtU4fOYpV1whlzLSq60cKFmXoBNZI",
+                "authorization: YOUR_API_KEY",
                 "accept: */*",
                 "cache-control: no-cache",
                 "content-type: application/json"
