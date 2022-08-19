@@ -6,9 +6,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Nette\Utils\Random;
+use App\Models\aadhaar_details;
 
 class getRequestController extends Controller
 {
+    private $otp;
+    private $phone;
     public function getAadharService($menu)
     {
         if (isset($menu)) {
@@ -32,6 +35,19 @@ class getRequestController extends Controller
                     'input_query.required' => 'Please enter your query'
                 ]
             );
+            if ($request['query_type'] != 'otp') {
+
+            } else {
+                // dd($this->otp);
+                if ($request['input_query'] == Session::get('otp')) {
+                    $arr = ['status' => 'true', 'message' => 'Welcome! Chirag, How may I help?', 'menu' => 'firstMenu'];
+                    print_r(json_encode($arr));
+                }
+                else{
+                    $arr = ['status' => 'false', 'message' => 'Wrong OTP! Kindly enter correct otp.'];
+                    print_r(json_encode($arr));
+                }
+            }
         } else {
             $request->validate(
                 [
@@ -45,8 +61,30 @@ class getRequestController extends Controller
                     'input_query.max' => 'Kindly enter 10 digits only'
                 ]
             );
-            $otp = rand(100000, 999999);
-            $this->sendOTP($otp, $request['input_query']);
+
+            $phone = $request['input_query'];
+            $user_details  = aadhaar_details::where('contact_number','=',$phone)->get()->toArray();
+
+            if(!empty($user_details)){
+                $this->otp = rand(100000, 999999);
+                // dd($this->otp);
+                $request->session()->put('otp', $this->otp);
+                $response = $this->sendOTP($this->otp, $request['input_query']);
+                // dd($response);
+                if(json_decode($response[0])->return == 'true'){
+
+                    $arr = ['status' => 'true', 'message' => 'OTP sent successfully to your phone number.'];
+                    print_r(json_encode($arr));
+                }
+                else{
+                    $arr = ['status' => 'false', 'message' => 'OTP couldn\'t sent successfully.'];
+                    print_r(json_encode($arr));
+                }
+            }
+            else{
+                $arr = ['status' => 'false', 'message' => 'This phone number is not registered.'];
+                print_r(json_encode($arr));
+            }
         }
     }
 
@@ -72,7 +110,7 @@ class getRequestController extends Controller
             CURLOPT_CUSTOMREQUEST => "POST",
             CURLOPT_POSTFIELDS => json_encode($fields),
             CURLOPT_HTTPHEADER => array(
-                "authorization: YOUR_API_KEY",
+                "authorization: vRyBF39AqeCfM8otjEPcl0zQKmhd5sLJ6UOpGgZWi1YxDVITNSRbtU4fOYpV1whlzLSq60cKFmXoBNZI",
                 "accept: */*",
                 "cache-control: no-cache",
                 "content-type: application/json"
@@ -84,53 +122,12 @@ class getRequestController extends Controller
 
         curl_close($curl);
 
-        if ($err) {
-            echo "cURL Error #:" . $err;
-        } else {
-            echo $response;
-        }
+        return [$response, $err];
+        // if ($err) {
+        //     echo "cURL Error #:" . $err;
+        // } else {
+        //     echo $response;
+        // }
     }
 
-    public function send($otp, $phone_number)
-    {
-
-        $fields = array(
-            "sender_id" => "FastSM",
-            "message" => "Your OTP: " . $otp,
-            "route" => "v3",
-            "numbers" => $phone_number,
-        );
-
-        $curl = curl_init();
-
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://www.fast2sms.com/dev/bulkV2",
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => "",
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 30,
-            CURLOPT_SSL_VERIFYHOST => 0,
-            CURLOPT_SSL_VERIFYPEER => 0,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => "POST",
-            CURLOPT_POSTFIELDS => json_encode($fields),
-            CURLOPT_HTTPHEADER => array(
-                "authorization: YOUR_API_KEY",
-                "accept: */*",
-                "cache-control: no-cache",
-                "content-type: application/json"
-            ),
-        ));
-
-        $response = curl_exec($curl);
-        $err = curl_error($curl);
-
-        curl_close($curl);
-
-        if ($err) {
-            echo "cURL Error #:" . $err;
-        } else {
-            echo $response;
-        }
-    }
 }
