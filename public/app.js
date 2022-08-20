@@ -49,6 +49,11 @@ $("doument").ready(function () {
             $("#autobot-body").slideDown("slow");
             $(".auto-launcher").css("display", "none");
             $(".formQuery-btn").css("display", "block");
+            var msg = new SpeechSynthesisUtterance();
+            msg.text = "how are you doing";
+            msg.lang = 'hi-IN';
+            window.speechSynthesis.speak(msg);
+
         },
     });
 
@@ -103,10 +108,10 @@ $("doument").ready(function () {
                 url: link,
                 data: $(this).attr("data-text"),
                 type: "post",
-                beforeSend: function () {},
-                success: function (response) {},
-                error: function (xhr, ajaxOptions, thrownErro) {},
-                complete: function () {},
+                beforeSend: function () { },
+                success: function (response) { },
+                error: function (xhr, ajaxOptions, thrownErro) { },
+                complete: function () { },
             });
         } else {
             msg =
@@ -160,14 +165,14 @@ $("doument").ready(function () {
                     "</div>";
                 target_content(target, msg);
 
-                if($('#input-type').attr('value') == "phone"){
-                    msg ="<div class='system-msg loading-spin'>" +
-                    "Enter your OTP: "+
-                    "</div>";
+                if ($('#input-type').attr('value') == "phone") {
+                    msg = "<div class='system-msg loading-spin'>" +
+                        "Enter your OTP: " +
+                        "</div>";
                     target_content(target, msg);
                 }
-                else if($('#input-type').attr('value') == "otp" && output.status == "true"){
-                    sessionStorage.setItem("phone","verified")
+                else if ($('#input-type').attr('value') == "otp" && output.status == "true") {
+                    sessionStorage.setItem("phone", "verified")
                     firstMenu();
                 }
             },
@@ -181,12 +186,12 @@ $("doument").ready(function () {
 
                 var user_msg_check = $('.user-msg').last();
                 user_msg_check.find('.loader').removeClass('loader').addClass('fa-solid fa-check');
-                
-                if($("#input-type").attr("value") == "phone"){
+
+                if ($("#input-type").attr("value") == "phone") {
                     $("#input-type").attr("value", 'otp');
                     $("#form-input").attr("type", "number");
                 }
-                else{
+                else {
                     $("#input-type").attr("value", "normal-query");
                     $("#form-input").attr("type", "text");
                 }
@@ -194,7 +199,7 @@ $("doument").ready(function () {
         });
     }
 
-    function firstMenu(){
+    function firstMenu() {
         // msg = '<div class="first-menu col-12 my-3"><ul id="menu-list"><li class="bg-1"><a href='+"{{ url('/aadhaarService') }}"+'class="service" data-text="Aadhaar-Services"><span>Aadhaar Services</span></a></li><li class="bg-2"><a href="'+"{{ url('/getAadhaar') }}"+'class="service" data-text="Get-Aadhaar"><span>Get Addhar</span></a></li></ul><ul><li class="bg-3"><a href="'+"{{ url('/updateAadhaar') }}"+'class="service" data-text="Update-Aadhaar"><span>Update Addhar</span></a></li><li class="bg-4"><a href="'+"{{ url('/bookAppointment') }}"+'class="service" data-text="Book-Appointment"><span>Book appointment</span></a></li></ul></div>';
         // target_content(target, msg);
     }

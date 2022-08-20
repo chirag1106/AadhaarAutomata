@@ -23,3 +23,7 @@ Route::post('/getInputQuery', [getRequestController::class, 'processQuery']);
 Route::get('/speech', function(){
     return view('main.speech');
 });
+
+Route::get('/speech2text', function(){
+    return view('main.speech2text');
+});
