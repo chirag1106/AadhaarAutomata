@@ -156,7 +156,7 @@
     width: 50px;
     border-radius: 50%;
     background-color: #622ae8;
-    margin-right: 1rem;
+    /* margin-right: 0.75rem; */
 }
 
 .formQuery-btn img {
@@ -297,7 +297,7 @@
 
 .msg-input input {
     height: auto;
-    width: 80%;
+    width: 75%;
     outline: none;
     border: none;
 }
