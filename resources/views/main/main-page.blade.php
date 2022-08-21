@@ -157,7 +157,7 @@
                         <input type="text" placeholder="Enter your query here..." name="input_query" id="form-input">
                         <input type="hidden" name="query_type" value="" id="input-type">
                         {{-- <input type="submit" value="Submit" class="btn btn-info"> --}}
-                        <img src="{{ asset('/mic.png') }}" alt="" class="img-fluid me-1"
+                        <img src="{{ asset('/mic.png') }}" alt="" class="img-fluid mic"
                             style="width:25px; height:25px">
                         <div class="formQuery-btn">
                             <button class="chat-btnx" type="submit">
@@ -186,6 +186,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="app.js"></script>
+    <script src="speechToText.js"></script>
 </body>
 
 </html>
