@@ -143,19 +143,23 @@
 
                 {{-- <div class="user-msg">Hi! How are you?</div> --}}
             </div>
-            <div class="msg-input">
-                <div class="languages me-3">
-                    <button>
-                        <img src="language.png" alt="">
-                    </button>
-                </div>
+            <div class="msg-input px-1 mx-0">
                 <form action="{{ url('/getInputQuery') }}" method="post" id="queryForm" class="w-100">
-                    <div class="input-group d-flex flex-nowrap justify-content-between">
+                    <div class="input-group d-flex flex-nowrap justify-content-between align-items-center">
+                        <div class="languages me-1">
+                            <button>
+                                <img src="language.png" alt="">
+                            </button>
+                        </div>
+
+
 
                         <input type="text" placeholder="Enter your query here..." name="input_query" id="form-input">
                         <input type="hidden" name="query_type" value="" id="input-type">
                         {{-- <input type="submit" value="Submit" class="btn btn-info"> --}}
-                        <div class="formQuery-btn row">
+                        <img src="{{ asset('/mic.png') }}" alt="" class="img-fluid me-1"
+                            style="width:25px; height:25px">
+                        <div class="formQuery-btn">
                             <button class="chat-btnx" type="submit">
                                 <img class="chat-send" src="bot.png" alt="">
                             </button>
@@ -163,7 +167,8 @@
                     </div>
                 </form>
             </div>
-            <div class="tool-bar col-12 d-flex flex-nowrap justify-content-between align-items-center align-content-center">
+            <div
+                class="tool-bar col-12 d-flex flex-nowrap justify-content-between align-items-center align-content-center">
                 <div class="powered">
                     <span style="font-size: 0.65rem">Powered-By: Ray-Of-Identity </span>
                 </div>
