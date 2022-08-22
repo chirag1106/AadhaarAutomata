@@ -1,4 +1,4 @@
-$("doument").ready(function () {
+$("document").ready(function () {
     "use strict";
     $.ajaxSetup({
         headers: {
@@ -213,5 +213,14 @@ $("doument").ready(function () {
         }
     });
 
+    $('.lang-btn').click(function(){
+        $('.goog-te-combo').change(function(){
+            var data= $(this).val();
+              alert(data);            
+        });
+        $('.goog-te-combo')
+            .val('hi')
+            .trigger('change');
+         });
 
 });
