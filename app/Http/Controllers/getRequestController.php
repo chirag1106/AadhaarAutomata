@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Nette\Utils\Random;
 use App\Models\aadhaar_details;
+use Exception;
 
 class getRequestController extends Controller
 {
@@ -63,7 +64,15 @@ class getRequestController extends Controller
             );
 
             $phone = $request['input_query'];
-            $user_details  = aadhaar_details::where('contact_number','=',$phone)->get()->toArray();
+            try{
+                $user_details  = aadhaar_details::where('contact_number','=',$phone)->get()->toArray();
+            }
+            catch(Exception $e){
+                $arr = ['status' => 'false', 'error_message' => $e->getMessage(), 'message' => 'SQL error!'];
+                print_r(json_encode($arr));
+            }
+            // dd(array_values($user_details));
+            $request->session()->put('user', $user_details);
 
             if(!empty($user_details)){
                 $this->otp = rand(100000, 999999);

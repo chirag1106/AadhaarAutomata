@@ -165,10 +165,10 @@ $("document").ready(function () {
                     "</div>";
                 target_content(target, msg);
 
-                if ($('#input-type').attr('value') == "phone") {
-                    msg = "<div class='system-msg loading-spin'>" +
-                        "Enter your OTP: " +
-                        "</div>";
+                if($('#input-type').attr('value') == "phone"){
+                    msg ="<div class='system-msg loading-spin'>" +
+                    "Enter your OTP: "+
+                    "</div>";
                     target_content(target, msg);
                 }
                 else if ($('#input-type').attr('value') == "otp" && output.status == "true") {
@@ -178,16 +178,21 @@ $("document").ready(function () {
             },
             error: function (xhr, ajaxOptions, thrownErro) {
                 var error = JSON.parse(xhr.responseText);
-                var msg = "<div class='system-msg'>" + error.message + "</div>";
-                target_content(target, msg);
+                if(error.message != null){
+                    var msg = "<div class='system-msg'>" + 'Opps! Out of service right now.' + "</div>";
+                    target_content(target, msg);
+                }
+                // var msg = "<div class='system-msg'>" + error.message + "</div>";
+
             },
-            complete: function () {
+            complete: function (response) {
+                var output = JSON.parse(response);
                 form.trigger("reset");
 
                 var user_msg_check = $('.user-msg').last();
                 user_msg_check.find('.loader').removeClass('loader').addClass('fa-solid fa-check');
-
-                if ($("#input-type").attr("value") == "phone") {
+                
+                if($("#input-type").attr("value") == "phone"){
                     $("#input-type").attr("value", 'otp');
                     $("#form-input").attr("type", "number");
                 }
