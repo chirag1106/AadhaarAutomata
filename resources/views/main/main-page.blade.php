@@ -114,7 +114,7 @@
 
 
                 <!-- first menu -->
-                {{-- <hr> --}}
+                {{-- <hr> 
                 <div class="first-menu col-12 my-3">
                     {{-- <form action="/getQuery/" method="post"> --}}
                     <ul id="menu-list">
@@ -154,7 +154,7 @@
                         </li>
                     </ul>
                     {{-- </form> --}}
-                </div>
+                </div>--}}
                 {{-- <hr> --}}
 
                 <!-- append user messege here -->
