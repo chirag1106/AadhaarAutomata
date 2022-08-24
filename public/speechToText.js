@@ -20,7 +20,7 @@ $(document).ready(function () {
         const recognition = new SpeechRecognition();
         recognition.continuous = true;
         
-        recognition.lang = "hi-IN";
+        recognition.lang = "en-US";
         if (src === BASE_URL + '/mic.png') {
             recognition.start();
             $(this).attr('src', BASE_URL + '/mic-listen.png');

@@ -4,6 +4,7 @@
 <head>
     <script>
         var BASE_URL = "{{ url('/') }}";
+        var language = "en-US";
     </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,6 +33,24 @@
 
 
         <div class="welcome-screen row flex justify-content-evenly">
+            <div class="modal modal-width" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <!-- <div class="modal-header">
+                            <h5 class="modal-title">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div> -->
+                        <div class="modal-body text-center">
+                            <p class="my-3">Choose your preffered language</p>
+                            <button type="button" class="btn mx-1 px-3 rounded-pill btn-custom-col2 english" data-bs-dismiss="modal" data-lang="en-US">English</button>
+                            <button type="button" class="btn mx-1 px-4 rounded-pill btn-custom-col2 hindi" data-lang="hi-IN">हिन्दी</button>
+                            <p class="my-3">अपनी पसंदीदा भाषा चुनें</p>
+                        </div>
+                        <!-- <div class="modal-footer">
+                        </div> -->
+                    </div>
+                </div>
+            </div>
             <div class="col-12 close ms-0 me-auto">
                 <button class="btn btn-wel-close inv">
                     <img src="./close.png" alt="">
@@ -54,8 +73,8 @@
             <div class="col-12 text-center">
                 <button class="btn hvr btn-lg border rounded-pill hello-2 px-5 proceed">Let me know!</button>
             </div>
-            
-            <div class="beta-version text-white text-center my-auto">
+
+            <div class="beta-version text-white text-center mx-auto my-auto">
                 <span>
                     Beta Version 0.1
                 </span>
@@ -87,8 +106,8 @@
                 </div>
             </div>
             <div class="msg-body">
-                <div class="system-msg">Hi, I'm Autobot.</div>
-                <div class="system-msg">Before we begin, please choose one of the topics.
+                <div class="auto-generated">Hi, I'm Autobot.</div>
+                <div class="auto-generated">Before we begin, please choose one of the topics.
                     <br>What would you like to explore?
                 </div>
 
@@ -153,8 +172,8 @@
 
 
 
-                        <input type="text" placeholder="Enter your query here..." name="input_query" id="form-input">
-                        <input type="hidden" name="query_type" value="" id="input-type">
+                        <input type="text" placeholder="Enter your query here..." name="input_query" id="form-input" >
+                        <input type="hidden" name="query_type" value="" id="input-type" >
                         {{-- <input type="submit" value="Submit" class="btn btn-info"> --}}
                         <img src="{{ asset('/mic.png') }}" alt="" class="img-fluid mic" style="width:25px; height:25px">
                         <div class="formQuery-btn">
@@ -169,12 +188,12 @@
                 <div class="powered">
                     <span style="font-size: 0.65rem">Powered-By: Ray-Of-Identity </span>
                 </div>
-                <div id="google_translate_element" style="display:none;">
-                <div class="skiptranslate goog-te-gadget" dir="ltr" >
-                    <div id=":0.targetLanguage">
+                <div id="google_translate_element" >
+                    <div class="skiptranslate goog-te-gadget" dir="ltr">
+                        <div id=":0.targetLanguage">
+                        </div>
                     </div>
                 </div>
-            </div>
                 <div class="beta-version">
                     <span style="font-size: 0.65rem">
                         Beta Version 0.1
@@ -190,12 +209,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="app.js"></script>
     <script src="speechToText.js"></script>
+    <script src="text2speech.js"></script>
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
-                pageLanguage: 'en'
-            }, 'google_translate_element');
+                pageLanguage: 'en'}, 'google_translate_element');
         }
+
+        
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
