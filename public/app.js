@@ -191,7 +191,7 @@ $("document").ready(function () {
 
                 var user_msg_check = $('.user-msg').last();
                 user_msg_check.find('.loader').removeClass('loader').addClass('fa-solid fa-check');
-                
+
                 if($("#input-type").attr("value") == "phone"){
                     $("#input-type").attr("value", 'otp');
                     $("#form-input").attr("type", "number");
@@ -221,7 +221,7 @@ $("document").ready(function () {
     $('.lang-btn').click(function(){
         $('.goog-te-combo').change(function(){
             var data= $(this).val();
-              alert(data);            
+              alert(data);
         });
         $('.goog-te-combo')
             .val('hi')

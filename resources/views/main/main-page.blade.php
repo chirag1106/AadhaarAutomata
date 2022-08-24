@@ -54,7 +54,7 @@
             <div class="col-12 text-center">
                 <button class="btn hvr btn-lg border rounded-pill hello-2 px-5 proceed">Let me know!</button>
             </div>
-            
+
             <div class="beta-version text-white text-center my-auto">
                 <span>
                     Beta Version 0.1
@@ -153,7 +153,7 @@
 
 
 
-                        <input type="text" placeholder="Enter your query here..." name="input_query" id="form-input">
+                        <input type="text" placeholder="Enter your query here..." name="input_query" id="form-input" style="overflow-x: scroll;">
                         <input type="hidden" name="query_type" value="" id="input-type">
                         {{-- <input type="submit" value="Submit" class="btn btn-info"> --}}
                         <img src="{{ asset('/mic.png') }}" alt="" class="img-fluid mic" style="width:25px; height:25px">
