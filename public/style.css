@@ -545,3 +545,18 @@ input[type="number"]::-webkit-outer-spin-button {
     box-shadow: 0px 0px 2.8px rgba(255, 0, 0, 0.053),
         0px 0px 6.7px rgba(255, 0, 0, 0.077), 0px 0px 12.5px rgba(255, 0, 0, 0.095);
 }
+
+.go{
+    width: 15px;
+    height: 15px;
+}
+
+.go-btn{
+    position: absolute;
+    top: 50%;
+    right: 10%;
+}
+
+.goog-te-banner-frame{
+    display: none !important;
+}

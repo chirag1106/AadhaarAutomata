@@ -42,9 +42,21 @@
                         </div> -->
                         <div class="modal-body text-center">
                             <p class="my-3">Choose your preffered language</p>
-                            <button type="button" class="btn mx-1 px-3 rounded-pill btn-custom-col2 english" data-bs-dismiss="modal" data-lang="en-US">English</button>
-                            <button type="button" class="btn mx-1 px-4 rounded-pill btn-custom-col2 hindi" data-lang="hi-IN">हिन्दी</button>
-                            <p class="my-3">अपनी पसंदीदा भाषा चुनें</p>
+                            <div class="tool-bar col-12 d-flex flex-nowrap justify-content-between align-items-center align-content-center">
+                                <!-- <div class="powered">
+                    <span style="font-size: 0.65rem">Powered-By: Ray-Of-Identity </span>
+                </div> -->
+                                <div id="google_translate_element" style="margin:auto;">
+                                    <div class="skiptranslate goog-te-gadget" dir="ltr">
+                                        <div id=":0.targetLanguage">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <button type="button" class="btn go-btn rounded-circle btn-custom-col2 english"  data-bs-dismiss="modal" data-lang="en-US"><img class="go" src="{{ asset('/go.svg') }}" alt=""></button>
+                            <!--<button type="button" class="btn mx-1 px-4 rounded-pill btn-custom-col2 hindi" data-lang="hi-IN">हिन्दी</button>
+                            <p class="my-3">अपनी पसंदीदा भाषा चुनें</p> -->
                         </div>
                         <!-- <div class="modal-footer">
                         </div> -->
@@ -111,13 +123,13 @@
                     <br>What would you like to explore?
                 </div>
 
-                <div class="auto-generated">
+                <!-- <div class="auto-generated">
                     <div class="typing">
                         <div class="dot"></div>
                         <div class="dot"></div>
                         <div class="dot"></div>
                     </div>
-                </div>
+                </div> -->
 
 
 
@@ -175,22 +187,7 @@
                     </div>
                 </form>
             </div>
-            <div class="tool-bar col-12 d-flex flex-nowrap justify-content-between align-items-center align-content-center">
-                <!-- <div class="powered">
-                    <span style="font-size: 0.65rem">Powered-By: Ray-Of-Identity </span>
-                </div> -->
-                <div id="google_translate_element">
-                    <div class="skiptranslate goog-te-gadget" dir="ltr">
-                        <div id=":0.targetLanguage">
-                        </div>
-                    </div>
-                </div>
-                <div class="beta-version">
-                    <span style="font-size: 0.65rem">
-                        Powered-By: Ray-Of-Identity
-                    </span>
-                </div>
-            </div>
+
         </div>
 
     </div>
@@ -204,7 +201,7 @@
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
-                pageLanguage: 'en'
+                pageLanguage: 'en', includedLanguages: "hi,en,bn,ur,pa,mr,te,ta,gu,kn,or,ml,as,sa" 
             }, 'google_translate_element');
         }
     </script>
