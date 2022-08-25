@@ -494,7 +494,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .typing .dot {
     animation: mercuryTypingAnimation 1.8s infinite ease-in-out;
-    background-color: #ab6cad; 
+    background-color: #ab6cad;
     /* //rgba(20,105,69,.7); */
     border-radius: 50%;
     height: 7px;
@@ -529,13 +529,13 @@ input[type="number"]::-webkit-outer-spin-button {
 
     28% {
         transform: translateY(-7px);
-        background-color: #a061a2; 
+        background-color: #a061a2;
         /* //rgba(20,105,69,.4); */
     }
 
     44% {
         transform: translateY(0px);
-        background-color: #815183; 
+        background-color: #815183;
         /* //rgba(20,105,69,.2); */
     }
 }
@@ -544,4 +544,16 @@ input[type="number"]::-webkit-outer-spin-button {
     border: 1px solid red !important;
     box-shadow: 0px 0px 2.8px rgba(255, 0, 0, 0.053),
         0px 0px 6.7px rgba(255, 0, 0, 0.077), 0px 0px 12.5px rgba(255, 0, 0, 0.095);
+}
+
+.goog-te-banner-frame{
+    display: none !important;
+}
+
+.modal{
+    height: 250px !important;
+}
+
+.modal-body{
+    height:230px !important;
 }

@@ -41,10 +41,16 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div> -->
                         <div class="modal-body text-center">
-                            <p class="my-3">Choose your preffered language</p>
-                            <button type="button" class="btn mx-1 px-3 rounded-pill btn-custom-col2 english" data-bs-dismiss="modal" data-lang="en-US">English</button>
-                            <button type="button" class="btn mx-1 px-4 rounded-pill btn-custom-col2 hindi" data-lang="hi-IN">हिन्दी</button>
-                            <p class="my-3">अपनी पसंदीदा भाषा चुनें</p>
+                            <p class="my-3">Please choose your preferred language</p>
+                            <div id="google_translate_element">
+                                <div class="skiptranslate goog-te-gadget" dir="ltr">
+                                    <div id=":0.targetLanguage">
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn mx-1 px-3 rounded-pill btn-custom-col2 go-btn english" data-bs-dismiss="modal" data-lang="en-US">GO</button>
+                            {{-- <button type="button" class="btn mx-1 px-4 rounded-pill btn-custom-col2 hindi" data-lang="hi-IN">हिन्दी</button>
+                            <p class="my-3">अपनी पसंदीदा भाषा चुनें</p> --}}
                         </div>
                         <!-- <div class="modal-footer">
                         </div> -->
@@ -71,7 +77,7 @@
                 <span>you?</span>
             </div>
             <div class="col-12 text-center">
-                <button class="btn hvr btn-lg border rounded-pill hello-2 px-5 proceed">Let me know!</button>
+                <button class="btn hvr btn-lg border rounded-pill hello-2 px-5 proceed">Lets Proceed!</button>
             </div>
 
             <div class="beta-version text-white text-center mx-auto my-auto">
@@ -179,12 +185,7 @@
                 <!-- <div class="powered">
                     <span style="font-size: 0.65rem">Powered-By: Ray-Of-Identity </span>
                 </div> -->
-                <div id="google_translate_element">
-                    <div class="skiptranslate goog-te-gadget" dir="ltr">
-                        <div id=":0.targetLanguage">
-                        </div>
-                    </div>
-                </div>
+
                 <div class="beta-version">
                     <span style="font-size: 0.65rem">
                         Powered-By: Ray-Of-Identity
@@ -204,7 +205,7 @@
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
-                pageLanguage: 'en'
+                pageLanguage: 'en', includedLanguages:"en,hi,sa,ml,bn,ur,pa,mr,te,ta,gu,kn,or,as"
             }, 'google_translate_element');
         }
     </script>
