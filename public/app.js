@@ -136,7 +136,7 @@ $("document").ready(function () {
         if (sessionStorage.getItem("phone") != "verified") {
 
 
-        // } else {
+            // } else {
             msg =
                 '<div class="system-msg">Please! Enter your phone number?</div>';
             if (value == 0) {
@@ -156,6 +156,13 @@ $("document").ready(function () {
         $(target_body).animate({ scrollTop: $(target_body).height() }, 1000);
         $(target_body).append(msg);
     }
+
+    $('.service').on({
+        click :function(){
+            $('.hr-menu').css("display","none");
+            $('.first-menu').fadeOut(300);
+        }
+    })
 
     function processInput(formClass) {
         var form = $(formClass);
@@ -182,23 +189,33 @@ $("document").ready(function () {
             success: function (response) {
                 var output = JSON.parse(response);
                 // console.log(output);
-                msg =
+                if(output.status=='true'){
+
+                    msg =
                     "<div class='system-msg loading-spin'>" +
                     output.message +
                     "</div>";
-                target_content(target, msg);
+                    target_content(target, msg);
+                }
+                else{
+                    msg =
+                    "<div class='system-msg error-border loading-spin'>" +
+                    output.message + 
+                    "</div>";
+                    target_content(target, msg);
+                }
 
                 if ($('#input-type').attr('value') == "phone") {
-                    if(output.status == 'true'){
+                    if (output.status == 'true') {
 
                         msg = "<div class='system-msg loading-spin'>" +
-                        "Enter your OTP: " +
-                        "</div>";
+                            "Enter your OTP: " +
+                            "</div>";
                         target_content(target, msg);
                         $("#input-type").attr("value", 'otp');
                         $("#form-input").attr("type", "number");
                     }
-                    else{
+                    else {
                         msg = '<div class="system-msg">Please! Enter your phone number?</div>';
                         target_content(target, msg);
                         $("#form-input").attr("type", "number");
@@ -206,12 +223,12 @@ $("document").ready(function () {
                     }
                 }
                 else if ($('#input-type').attr('value') == "otp") {
-                    if(output.status == 'true'){
+                    if (output.status == 'true') {
                         sessionStorage.setItem("phone", "verified");
                         $("#input-type").attr("value", "normal-query");
                         $("#form-input").attr("type", "text");
                     }
-                    else{
+                    else {
                         $("#input-type").attr("value", "otp");
                         $("#form-input").attr("type", "number");
                     }
