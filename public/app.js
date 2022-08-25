@@ -49,9 +49,11 @@ $("document").ready(function () {
             $("#autobot-body").slideDown("slow");
             $(".auto-launcher").css("display", "none");
             $(".formQuery-btn").css("display", "block");
+            $(".modal").show();
             var msg = new SpeechSynthesisUtterance();
-            msg.text = "how are you doing";
-            msg.lang = 'hi-IN';
+            var vartext = $(".system-msg").last();
+            msg.text = vartext.text();
+            msg.lang = language;
             window.speechSynthesis.speak(msg);
 
         },
@@ -165,10 +167,10 @@ $("document").ready(function () {
                     "</div>";
                 target_content(target, msg);
 
-                if($('#input-type').attr('value') == "phone"){
-                    msg ="<div class='system-msg loading-spin'>" +
-                    "Enter your OTP: "+
-                    "</div>";
+                if ($('#input-type').attr('value') == "phone") {
+                    msg = "<div class='system-msg loading-spin'>" +
+                        "Enter your OTP: " +
+                        "</div>";
                     target_content(target, msg);
                 }
                 else if ($('#input-type').attr('value') == "otp" && output.status == "true") {
@@ -178,15 +180,15 @@ $("document").ready(function () {
             },
             error: function (xhr, ajaxOptions, thrownErro) {
                 var error = JSON.parse(xhr.responseText);
-                if(error.message != null){
+                if (error.message != null) {
                     var msg = "<div class='system-msg'>" + 'Opps! Out of service right now.' + "</div>";
                     target_content(target, msg);
                 }
                 // var msg = "<div class='system-msg'>" + error.message + "</div>";
 
             },
-            complete: function (response) {
-                var output = JSON.parse(response);
+            complete: function () {
+                // var output = JSON.parse(response);
                 form.trigger("reset");
 
                 var user_msg_check = $('.user-msg').last();
@@ -226,6 +228,6 @@ $("document").ready(function () {
         $('.goog-te-combo')
             .val('hi')
             .trigger('change');
-         });
+    });
 
 });

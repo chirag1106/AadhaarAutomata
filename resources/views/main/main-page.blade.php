@@ -4,6 +4,7 @@
 <head>
     <script>
         var BASE_URL = "{{ url('/') }}";
+        var language = "en-US";
     </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,6 +33,24 @@
 
 
         <div class="welcome-screen row flex justify-content-evenly">
+            <div class="modal modal-width" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <!-- <div class="modal-header">
+                            <h5 class="modal-title">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div> -->
+                        <div class="modal-body text-center">
+                            <p class="my-3">Choose your preffered language</p>
+                            <button type="button" class="btn mx-1 px-3 rounded-pill btn-custom-col2 english" data-bs-dismiss="modal" data-lang="en-US">English</button>
+                            <button type="button" class="btn mx-1 px-4 rounded-pill btn-custom-col2 hindi" data-lang="hi-IN">हिन्दी</button>
+                            <p class="my-3">अपनी पसंदीदा भाषा चुनें</p>
+                        </div>
+                        <!-- <div class="modal-footer">
+                        </div> -->
+                    </div>
+                </div>
+            </div>
             <div class="col-12 close ms-0 me-auto">
                 <button class="btn btn-wel-close inv">
                     <img src="./close.png" alt="">
@@ -55,7 +74,11 @@
                 <button class="btn hvr btn-lg border rounded-pill hello-2 px-5 proceed">Let me know!</button>
             </div>
 
+<<<<<<< HEAD
             <div class="beta-version text-white text-center my-auto">
+=======
+            <div class="beta-version text-white text-center mx-auto my-auto">
+>>>>>>> 7af9b213ed11b521c11f2835357a7b08d704cccf
                 <span>
                     Beta Version 0.1
                 </span>
@@ -87,23 +110,30 @@
                 </div>
             </div>
             <div class="msg-body">
-                <div class="system-msg">Hi, I'm Autobot.</div>
-                <div class="system-msg">Before we begin, please choose one of the topics.
+                <div class="auto-generated">Hi, I'm Autobot.</div>
+                <div class="auto-generated">Before we begin, please choose one of the topics.
                     <br>What would you like to explore?
+                </div>
+
+                <div class="auto-generated">
+                    <div class="typing">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
                 </div>
 
 
 
                 <!-- first menu -->
-                {{-- <hr> --}}
+                <hr>
                 <div class="first-menu col-12 my-3">
-                    {{-- <form action="/getQuery/" method="post"> --}}
                     <ul id="menu-list">
                         <li class="bg-1">
-                            <a href="{{ url('/aadhaarService') }}" class="service" data-text="Aadhaar-Services">
+                            <a href="{{ url('/updateAadhaar/update') }}" class="service" data-text="Update-Aadhaar">
                                 {{-- <img src="" alt=""> --}}
                                 <span>
-                                    Aadhaar Services
+                                    Update Aadhar
                                 </span>
                             </a>
                         </li>
@@ -111,32 +141,13 @@
                             <a href="{{ url('/getAadhaar') }}" class="service" data-text="Get-Aadhaar">
                                 {{-- <img src="" alt=""> --}}
                                 <span>
-                                    Get Addhar
+                                    Get Aadhar
                                 </span>
                             </a>
                         </li>
                     </ul>
-                    <ul>
-                        <li class="bg-3">
-                            <a href="{{ url('/updateAadhaar') }}" class="service" data-text="Update-Aadhaar">
-                                {{-- <img src="" alt=""> --}}
-                                <span>
-                                    Update Addhar
-                                </span>
-                            </a>
-                        </li>
-                        <li class="bg-4">
-                            <a href="{{ url('/bookAppointment') }}" class="service" data-text="Book-Appointment">
-                                {{-- <img src="" alt=""> --}}
-                                <span>
-                                    Book appointment
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                    {{-- </form> --}}
+                    <hr>
                 </div>
-                {{-- <hr> --}}
 
                 <!-- append user messege here -->
 
@@ -145,16 +156,24 @@
             <div class="msg-input px-1 mx-0">
                 <form action="{{ url('/getInputQuery') }}" method="post" id="queryForm" class="w-100">
                     <div class="input-group d-flex flex-nowrap justify-content-between align-items-center">
-                        <div class="languages me-1">
+
+                        <!-- language icon -->
+
+                        <!-- <div class="languages me-1">
                             <button type="button" class="lang-btn">
                                 <img src="language.png" alt="">
                             </button>
-                        </div>
+                        </div> -->
 
 
 
+<<<<<<< HEAD
                         <input type="text" placeholder="Enter your query here..." name="input_query" id="form-input" style="overflow-x: scroll;">
                         <input type="hidden" name="query_type" value="" id="input-type">
+=======
+                        <input type="text" placeholder="Enter your query here..." name="input_query" id="form-input" class="ms-2">
+                        <input type="hidden" name="query_type" value="" id="input-type" class="ms-2">
+>>>>>>> 7af9b213ed11b521c11f2835357a7b08d704cccf
                         {{-- <input type="submit" value="Submit" class="btn btn-info"> --}}
                         <img src="{{ asset('/mic.png') }}" alt="" class="img-fluid mic" style="width:25px; height:25px">
                         <div class="formQuery-btn">
@@ -166,18 +185,18 @@
                 </form>
             </div>
             <div class="tool-bar col-12 d-flex flex-nowrap justify-content-between align-items-center align-content-center">
-                <div class="powered">
+                <!-- <div class="powered">
                     <span style="font-size: 0.65rem">Powered-By: Ray-Of-Identity </span>
-                </div>
-                <div id="google_translate_element" style="display:none;">
-                <div class="skiptranslate goog-te-gadget" dir="ltr" >
-                    <div id=":0.targetLanguage">
+                </div> -->
+                <div id="google_translate_element">
+                    <div class="skiptranslate goog-te-gadget" dir="ltr">
+                        <div id=":0.targetLanguage">
+                        </div>
                     </div>
                 </div>
-            </div>
                 <div class="beta-version">
                     <span style="font-size: 0.65rem">
-                        Beta Version 0.1
+                        Powered-By: Ray-Of-Identity
                     </span>
                 </div>
             </div>
@@ -190,6 +209,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="app.js"></script>
     <script src="speechToText.js"></script>
+    <script src="text2speech.js"></script>
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({

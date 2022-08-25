@@ -125,7 +125,7 @@
     width: auto;
 }
 
-.auto-launcher button{
+.auto-launcher button {
     z-index: 10 !important;
     box-shadow: 0px 0px 2.8px rgba(0, 0, 0, 0.053),
         0px 0px 6.7px rgba(0, 0, 0, 0.077), 0px 0px 12.5px rgba(0, 0, 0, 0.095),
@@ -141,7 +141,8 @@
     border-radius: 50%;
     background-color: #622ae8;
 }
-.formQuery-btn button{
+
+.formQuery-btn button {
     z-index: 10 !important;
     box-shadow: 0px 0px 2.8px rgba(0, 0, 0, 0.053),
         0px 0px 6.7px rgba(0, 0, 0, 0.077), 0px 0px 12.5px rgba(0, 0, 0, 0.095),
@@ -184,14 +185,12 @@
     flex-direction: row;
     background-image: url("/wave.png");
     background-size: cover;
-    background-image: linear-gradient(
-        to right bottom,
-        #622ae8,
-        #7926e9,
-        #8e21ea,
-        #a01beb,
-        #b212eb
-    );
+    background-image: linear-gradient(to right bottom,
+            #622ae8,
+            #7926e9,
+            #8e21ea,
+            #a01beb,
+            #b212eb);
     box-shadow: 0px 2.5px 1.8px 3px rgba(0, 0, 0, 0.02),
         0px 6.1px 4.4px 3px rgba(0, 0, 0, 0.028),
         0px 6.5px 8.3px 3px rgba(0, 0, 0, 0.035),
@@ -284,7 +283,7 @@
     font-size: 0.858769rem;
 }
 
-.service{
+.service {
     font-size: 0.858769rem;
 }
 
@@ -373,12 +372,15 @@
 .bg-1 {
     background: #fcedec;
 }
+
 .bg-2 {
     background: #adcce9;
 }
+
 .bg-3 {
     background: #e3fff0;
 }
+
 .bg-4 {
     background: #faeb95;
 }
@@ -391,6 +393,7 @@ input[type="number"]::-webkit-outer-spin-button {
     appearance: none;
     margin: 0;
 }
+
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
     opacity: 0;
@@ -403,17 +406,133 @@ input[type="number"]::-webkit-outer-spin-button {
     width: 20px;
     height: 20px;
     animation: spin 2s linear infinite;
-  }
+}
 
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
 
-  .loading-spin{
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-spin {
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
     align-content: center;
-  }
+}
+
+.modal-width {
+    position: absolute !important;
+    top: 325px !important;
+    left: 65px !important;
+    width: 300px !important;
+    height: auto;
+}
+
+.modal {
+    color: #fff !important;
+    /* filter: blur(10px); */
+    border: none !important;
+    /* background: #ffffff75 !important; */
+}
+
+.modal-body {
+    /* --bs-modal-border-color: transparent; */
+    /* border: none !important; */
+    background: #622ae8 !important;
+}
+
+.modal-content {
+    background: #622ae8 !important;
+}
+
+.btn-custom-col2 {
+    color: #622ae8 !important;
+    background: rgba(255, 255, 255, 0.711) !important;
+    border: 1px solid#622ae8 !important;
+}
+
+.btn-custom-col2:hover {
+    color: #622ae8 !important;
+    background: rgba(255, 255, 255, 0.801) !important;
+}
+
+.auto-generated {
+    width: 75%;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 9px;
+    /* background: #e6e6e6; */
+    background: #e7dbff;
+    font-size: 0.858769rem;
+}
+
+.goog-logo-link {
+    display: none ! important;
+}
+
+.goog-te-gadget {
+    margin: none !important;
+    color: transparent ! important;
+}
+
+/* typaing wave animation */
+
+.typing {
+    align-items: center;
+    display: flex;
+    height: 17px;
+}
+
+.typing .dot {
+    animation: mercuryTypingAnimation 1.8s infinite ease-in-out;
+    background-color: #ab6cad; 
+    /* //rgba(20,105,69,.7); */
+    border-radius: 50%;
+    height: 7px;
+    margin-right: 4px;
+    vertical-align: middle;
+    width: 7px;
+    display: inline-block;
+}
+
+.typing .dot:nth-child(1) {
+    animation-delay: 200ms;
+}
+
+.typing .dot:nth-child(2) {
+    animation-delay: 300ms;
+}
+
+.typing .dot:nth-child(3) {
+    animation-delay: 400ms;
+}
+
+.typing .dot:last-child {
+    margin-right: 0;
+}
+
+@keyframes mercuryTypingAnimation {
+    0% {
+        transform: translateY(0px);
+        background-color: #ab6cad;
+         /* // rgba(20,105,69,.7); */
+    }
+
+    28% {
+        transform: translateY(-7px);
+        background-color: #a061a2; 
+        /* //rgba(20,105,69,.4); */
+    }
+
+    44% {
+        transform: translateY(0px);
+        background-color: #815183; 
+        /* //rgba(20,105,69,.2); */
+    }
+}

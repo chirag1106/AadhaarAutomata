@@ -19,8 +19,8 @@ $(document).ready(function () {
         const recognition = new SpeechRecognition();
         recognition.continuous = true;
 
-        recognition.lang = "en-US";
-        if (src === BASE_URL + "/mic.png") {
+        recognition.lang = "hi-IN";
+        if (src === BASE_URL + '/mic.png') {
             recognition.start();
             $(this).attr("src", BASE_URL + "/mic-listen.png");
         }
@@ -63,46 +63,6 @@ $(document).ready(function () {
                 }
             }
         }
+
     });
-
-    jQuery.fn.putCursorAtEnd = function () {
-        return this.each(function () {
-            // Cache references
-            var $el = $(this),
-                el = this;
-
-            // Only focus if input isn't already
-            if (!$el.is(":focus")) {
-                $el.focus();
-            }
-
-            // If this function exists... (IE 9+)
-            if (el.setSelectionRange) {
-                // Double the length because Opera is inconsistent about whether a carriage return is one character or two.
-                var len = $el.val().length * 2;
-
-                // Timeout seems to be required for Blink
-                setTimeout(function () {
-                    el.setSelectionRange(len, len);
-                }, 1);
-            } else {
-                // As a fallback, replace the contents with itself
-                // Doesn't work in Chrome, but Chrome supports setSelectionRange
-                $el.val($el.val());
-            }
-
-            // Scroll to the bottom, in case we're in a tall textarea
-            // (Necessary for Firefox and Chrome)
-            this.scrollTop = 999999;
-        });
-    };
-
-    var searchInput = $("#form-input");
-
-    searchInput
-        .putCursorAtEnd() // should be chainable
-        .on("focus", function () {
-            // could be on any event
-            searchInput.putCursorAtEnd();
-        });
 });
