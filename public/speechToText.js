@@ -21,6 +21,7 @@ $(document).ready(function () {
         recognition.continuous = true;
         
         recognition.lang = "en-US";
+        
         if (src === BASE_URL + '/mic.png') {
             recognition.start();
             $(this).attr('src', BASE_URL + '/mic-listen.png');
