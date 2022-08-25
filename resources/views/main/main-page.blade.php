@@ -111,17 +111,25 @@
                     <br>What would you like to explore?
                 </div>
 
+                <div class="auto-generated">
+                    <div class="typing">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+
 
 
                 <!-- first menu -->
                 <hr>
                 <div class="first-menu col-12 my-3">
                     <ul id="menu-list">
-                         <li class="bg-1">
+                        <li class="bg-1">
                             <a href="{{ url('/updateAadhaar/update') }}" class="service" data-text="Update-Aadhaar">
                                 {{-- <img src="" alt=""> --}}
                                 <span>
-                                    Update Addhar
+                                    Update Aadhar
                                 </span>
                             </a>
                         </li>
@@ -129,7 +137,7 @@
                             <a href="{{ url('/getAadhaar') }}" class="service" data-text="Get-Aadhaar">
                                 {{-- <img src="" alt=""> --}}
                                 <span>
-                                    Get Addhar
+                                    Get Aadhar
                                 </span>
                             </a>
                         </li>
@@ -144,16 +152,19 @@
             <div class="msg-input px-1 mx-0">
                 <form action="{{ url('/getInputQuery') }}" method="post" id="queryForm" class="w-100">
                     <div class="input-group d-flex flex-nowrap justify-content-between align-items-center">
-                        <div class="languages me-1">
+
+                        <!-- language icon -->
+
+                        <!-- <div class="languages me-1">
                             <button type="button" class="lang-btn">
                                 <img src="language.png" alt="">
                             </button>
-                        </div>
+                        </div> -->
 
 
 
-                        <input type="text" placeholder="Enter your query here..." name="input_query" id="form-input" >
-                        <input type="hidden" name="query_type" value="" id="input-type" >
+                        <input type="text" placeholder="Enter your query here..." name="input_query" id="form-input" class="ms-2">
+                        <input type="hidden" name="query_type" value="" id="input-type" class="ms-2">
                         {{-- <input type="submit" value="Submit" class="btn btn-info"> --}}
                         <img src="{{ asset('/mic.png') }}" alt="" class="img-fluid mic" style="width:25px; height:25px">
                         <div class="formQuery-btn">
@@ -165,10 +176,10 @@
                 </form>
             </div>
             <div class="tool-bar col-12 d-flex flex-nowrap justify-content-between align-items-center align-content-center">
-                <div class="powered">
+                <!-- <div class="powered">
                     <span style="font-size: 0.65rem">Powered-By: Ray-Of-Identity </span>
-                </div>
-                <div id="google_translate_element" >
+                </div> -->
+                <div id="google_translate_element">
                     <div class="skiptranslate goog-te-gadget" dir="ltr">
                         <div id=":0.targetLanguage">
                         </div>
@@ -176,7 +187,7 @@
                 </div>
                 <div class="beta-version">
                     <span style="font-size: 0.65rem">
-                        Beta Version 0.1
+                        Powered-By: Ray-Of-Identity
                     </span>
                 </div>
             </div>
@@ -193,10 +204,9 @@
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
-                pageLanguage: 'en'}, 'google_translate_element');
+                pageLanguage: 'en'
+            }, 'google_translate_element');
         }
-
-
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
