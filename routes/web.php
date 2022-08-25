@@ -16,7 +16,7 @@ use App\Http\Controllers\getRequestController;
 
 Route::get('/', [ViewChatBot::class, 'page'] )->name('initial-page');
 
-Route::post('/aadhaarService', [getRequestController::class, 'getAadharService']);
+Route::get('/updateAadhaar/{query?}', [getRequestController::class, 'updateAadhaar']);
 
 Route::post('/getInputQuery', [getRequestController::class, 'processQuery']);
 

@@ -118,7 +118,7 @@
                 <div class="first-menu col-12 my-3">
                     <ul id="menu-list">
                          <li class="bg-1">
-                            <a href="{{ url('/updateAadhaar') }}" class="service" data-text="Update-Aadhaar">
+                            <a href="{{ url('/updateAadhaar/update') }}" class="service" data-text="Update-Aadhaar">
                                 {{-- <img src="" alt=""> --}}
                                 <span>
                                     Update Addhar
