@@ -1,3 +1,5 @@
+// const { get } = require("lodash");
+
 $("document").ready(function () {
     "use strict";
     $.ajaxSetup({
@@ -56,7 +58,6 @@ $("document").ready(function () {
             msg.lang = language;
             window.speechSynthesis.speak(msg);
             console.log(msg.text);
-
         },
     });
 
@@ -88,7 +89,6 @@ $("document").ready(function () {
         },
     });
 
-
     $(".btn-wel-close").on({
         click: function () {
             $("#autobot-body").fadeOut("1000", function () {
@@ -109,7 +109,7 @@ $("document").ready(function () {
         },
     });
 
-    $('.chat-btnx').on({
+    $(".chat-btnx").on({
         mouseenter: function () {
             var bg =
                 $(this).css("background-color") === "white"
@@ -124,18 +124,17 @@ $("document").ready(function () {
                     ? "white"
                     : "#622ae8";
             $(this).css("background-color", bg1);
-        }
+        },
     });
 
     var value = 0;
     var target = ".msg-body";
     var formName = "#queryForm";
     var msg;
+    var clickedService;
     $(".service").click(function (e) {
         e.preventDefault();
         if (sessionStorage.getItem("phone") != "verified") {
-
-
             // } else {
             msg =
                 '<div class="system-msg">Please! Enter your phone number?</div>';
@@ -157,12 +156,14 @@ $("document").ready(function () {
         $(target_body).append(msg);
     }
 
-    $('.service').on({
-        click :function(){
-            $('.hr-menu').css("display","none");
-            $('.first-menu').fadeOut(300);
-        }
-    })
+    $(".service").on({
+        click: function () {
+            clickedService = $(this).attr("href");
+            // console.log(clickedService);
+            $(".hr-menu").css("display", "none");
+            $(".first-menu").fadeOut(300);
+        },
+    });
 
     function processInput(formClass) {
         var form = $(formClass);
@@ -189,68 +190,80 @@ $("document").ready(function () {
             success: function (response) {
                 var output = JSON.parse(response);
                 // console.log(output);
-                if(output.status=='true'){
-
+                if (output.status == "true") {
                     msg =
-                    "<div class='system-msg loading-spin'>" +
-                    output.message +
-                    "</div>";
+                        "<div class='system-msg loading-spin'>" +
+                        output.message +
+                        "</div>";
+                    target_content(target, msg);
+                } else {
+                    msg =
+                        "<div class='system-msg error-border loading-spin'>" +
+                        output.message +
+                        "</div>";
                     target_content(target, msg);
                 }
-                else{
-                    msg =
-                    "<div class='system-msg error-border loading-spin'>" +
-                    output.message + 
-                    "</div>";
-                    target_content(target, msg);
-                }
 
-                if ($('#input-type').attr('value') == "phone") {
-                    if (output.status == 'true') {
-
-                        msg = "<div class='system-msg loading-spin'>" +
+                if ($("#input-type").attr("value") == "phone") {
+                    if (output.status == "true") {
+                        msg =
+                            "<div class='system-msg loading-spin'>" +
                             "Enter your OTP: " +
                             "</div>";
                         target_content(target, msg);
-                        $("#input-type").attr("value", 'otp');
+                        $("#input-type").attr("value", "otp");
                         $("#form-input").attr("type", "number");
-                    }
-                    else {
-                        msg = '<div class="system-msg">Please! Enter your phone number?</div>';
+                    } else {
+                        msg =
+                            '<div class="system-msg">Please! Enter your phone number?</div>';
                         target_content(target, msg);
                         $("#form-input").attr("type", "number");
                         $("#input-type").attr("value", "phone");
                     }
-                }
-                else if ($('#input-type').attr('value') == "otp") {
-                    if (output.status == 'true') {
+                } else if ($("#input-type").attr("value") == "otp") {
+                    if (output.status == "true") {
                         sessionStorage.setItem("phone", "verified");
+                        console.log(clickedService);
+                        $.ajax({
+                            url: clickedService,
+                            type: "post",
+                            beforeSend: function () {},
+                            success: function (response) {
+                                // console.log(response);
+                            },
+                            error: function () {},
+                            complete: function () {
+                                sendSMS("Your phone number is verified.");
+                            },
+                        });
                         $("#input-type").attr("value", "normal-query");
                         $("#form-input").attr("type", "text");
-                    }
-                    else {
+                    } else {
                         $("#input-type").attr("value", "otp");
                         $("#form-input").attr("type", "number");
                     }
-
                 }
-
             },
             error: function (xhr, ajaxOptions, thrownErro) {
                 var error = JSON.parse(xhr.responseText);
                 if (error.message != null) {
-                    var msg = "<div class='system-msg'>" + 'Opps! Out of service right now.' + "</div>";
+                    var msg =
+                        "<div class='system-msg'>" +
+                        "Opps! Out of service right now." +
+                        "</div>";
                     target_content(target, msg);
                 }
                 // var msg = "<div class='system-msg'>" + error.message + "</div>";
-
             },
             complete: function () {
                 // var output = JSON.parse(response);
                 form.trigger("reset");
 
-                var user_msg_check = $('.user-msg').last();
-                user_msg_check.find('.loader').removeClass('loader').addClass('fa-solid fa-check');
+                var user_msg_check = $(".user-msg").last();
+                user_msg_check
+                    .find(".loader")
+                    .removeClass("loader")
+                    .addClass("fa-solid fa-check");
 
                 // if ($("#input-type").attr("value") == "phone") {
                 //     // $("#input-type").attr("value", 'otp');
@@ -264,6 +277,38 @@ $("document").ready(function () {
         });
     }
 
+    function sendSMS($msg) {
+        $.ajax({
+            url: BASE_URL + "/sendSMS/" + $msg,
+            type: "post",
+            beforeSend: function () {
+                
+            },
+            success: function (response) {
+                // console.log(response);
+
+                var value = response.menu["value1"];
+
+                var split_array = value.split(",");
+
+                // console.log(split_array);
+                var main_menu;
+                var main_menu_array = new Array();
+                var j = 0;
+                // console.log(split_array.length);
+                for (var i = 0; i < split_array.length; i++) {
+                    main_menu = split_array[i].replace("-", " ");
+                    main_menu_array[j] = main_menu;
+                    j++;
+                }
+
+                // for(var i=0; i<main_menu.length; i++){
+                console.log(main_menu_array);
+            },
+            error: function () {},
+            complete: function () {},
+        });
+    }
     function firstMenu() {
         // msg = '<div class="first-menu col-12 my-3"><ul id="menu-list"><li class="bg-1"><a href='+"{{ url('/aadhaarService') }}"+'class="service" data-text="Aadhaar-Services"><span>Aadhaar Services</span></a></li><li class="bg-2"><a href="'+"{{ url('/getAadhaar') }}"+'class="service" data-text="Get-Aadhaar"><span>Get Addhar</span></a></li></ul><ul><li class="bg-3"><a href="'+"{{ url('/updateAadhaar') }}"+'class="service" data-text="Update-Aadhaar"><span>Update Addhar</span></a></li><li class="bg-4"><a href="'+"{{ url('/bookAppointment') }}"+'class="service" data-text="Book-Appointment"><span>Book appointment</span></a></li></ul></div>';
         // target_content(target, msg);
@@ -278,14 +323,12 @@ $("document").ready(function () {
         }
     });
 
-    $('.lang-btn').click(function () {
-        $('.goog-te-combo').change(function () {
+    $(".lang-btn").click(function () {
+        $(".goog-te-combo").change(function () {
             var data = $(this).val();
             alert(data);
         });
-        $('.goog-te-combo')
-            .val('hi')
-            .trigger('change');
+        $(".goog-te-combo").val("hi").trigger("change");
     });
 
     // $("#queryForm").submit(function (e) {
