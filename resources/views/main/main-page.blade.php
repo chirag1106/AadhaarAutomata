@@ -135,7 +135,14 @@
                             <a href="{{ url('/updateAadhaar/updateMenu') }}" class="service" data-text="Update-Aadhaar">
                                 {{-- <img src="" alt=""> --}}
                                 <span>
-                                    Update Aadhar
+                                   <span style="text-align: left; ">Update Aadhar</span>
+                                    <ol class="ps-0 mt-2">
+                                        <li class="w-100 mb-1 px-2" style="border-radius: 3px !important;">Update Address</li>
+                                        <li class="w-100 mb-1 px-2" style="border-radius: 3px !important;">Update Date-Of-Birth</li>
+                                        <li class="w-100 mb-1 px-2" style="border-radius: 3px !important;">Update Father-Name</li>
+                                        <li class="w-100 mb-1 px-2" style="border-radius: 3px !important;">Update Gender</li>
+                                        <li class="w-100 mb-1 px-2" style="border-radius: 3px !important;">Update Name</li>
+                                    </ol>
                                 </span>
                             </a>
                         </li>
