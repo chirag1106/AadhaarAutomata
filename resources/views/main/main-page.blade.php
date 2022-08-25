@@ -116,11 +116,11 @@
 
 
                 <!-- first menu -->
-                <hr>
+                <hr class="hr-menu">
                 <div class="first-menu col-12 my-3">
                     <ul id="menu-list">
                         <li class="bg-1">
-                            <a href="{{ url('/updateAadhaar/update') }}" class="service" data-text="Update-Aadhaar">
+                            <a href="{{ url('/updateAadhaar/updateMenu') }}" class="service" data-text="Update-Aadhaar">
                                 {{-- <img src="" alt=""> --}}
                                 <span>
                                     Update Aadhar
@@ -136,7 +136,7 @@
                             </a>
                         </li>
                     </ul>
-                    <hr>
+                    <hr class="hr-menu">
                 </div>
 
                 <!-- append user messege here -->
@@ -162,7 +162,7 @@
                         {{-- <input type="submit" value="Submit" class="btn btn-info"> --}}
                         <img src="{{ asset('/mic.png') }}" alt="" class="img-fluid mic" style="width:25px; height:25px">
                         <div class="formQuery-btn">
-                            <button class="chat-btnx" type="submit">
+                            <button id="formTypedQuerySubmit" class="chat-btnx" type="submit">
                                 <img class="chat-send" src="bot.png" alt="">
                             </button>
                         </div>
