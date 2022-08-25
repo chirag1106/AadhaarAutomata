@@ -128,7 +128,7 @@
 
 
                 <!-- first menu -->
-                <hr class="hr-menu">
+                <!-- <hr class="hr-menu"> -->
                 <div class="first-menu col-12 my-3">
                     <ul id="menu-list">
                         <li class="bg-1">
@@ -148,7 +148,7 @@
                             </a>
                         </li>
                     </ul>
-                    <hr class="hr-menu">
+                    <!-- <hr class="hr-menu"> -->
                 </div>
 
                 <!-- append user messege here -->

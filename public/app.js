@@ -247,9 +247,9 @@ $("document").ready(function () {
                                     j++;
                                 }
 
-                                var menu_msg = "<div class='system-msg update-menu-list'><ul class='ps-0'>";
+                                var menu_msg = "<div class='user-msg-2 update-menu-list'><ul class='ps-0'>";
                                 for(var i=0;i<main_menu_array.length;i++){
-                                    var list = "<li class='btn pb-1 d-block border border-dark text-capitalize' style='text-decoration: none; text-align: left;'>"+main_menu_array[i]+"</li>";
+                                    var list = "<li class='btn pb-1 d-block border border-dark menu-li text-capitalize' style='text-decoration: none; text-align: left;'>"+main_menu_array[i]+"</li>";
                                     menu_msg += list;
                                 }
                                 menu_msg += "</ul></div>";
@@ -344,4 +344,15 @@ $("document").ready(function () {
     //     // $("#input-type").attr("value", "normal-query");
     //     processInput(formName);
     // });
+
+    setInterval(function(){
+        $('body').css('top', 0);
+    }, 10)
+
+    $('.menu-li').on({
+        click: function(){
+            var menu_option = $(this).text()
+            
+        }
+    })
 });
