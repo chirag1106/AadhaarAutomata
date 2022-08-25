@@ -254,7 +254,7 @@ $("document").ready(function () {
                                 }
                                 menu_msg += "</ul></div>";
 
-                                console.log(menu_msg);
+                                // console.log(menu_msg);
 
                                 $('.msg-body').last().append(menu_msg);
                             },
