@@ -7,17 +7,22 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Nette\Utils\Random;
 use App\Models\aadhaar_details;
+use App\Models\updateMenu;
 use Exception;
 
 class getRequestController extends Controller
 {
     private $otp;
     private $phone;
-    public function getAadharService($menu)
+
+    public function updateAadhaar($query)
     {
-        if (isset($menu)) {
-            echo $menu;
-        } else {
+        if(($query)){
+            $menu = updateMenu::where('id','=',1)->get()->first()->toArray();
+
+
+            $arr = ['status' => 'true', 'menu' => json_encode($menu) ];
+            print_r(json_encode($arr));
         }
     }
 
