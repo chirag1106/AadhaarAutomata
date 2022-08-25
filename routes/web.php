@@ -16,13 +16,15 @@ use App\Http\Controllers\getRequestController;
 
 Route::get('/', [ViewChatBot::class, 'page'] )->name('initial-page');
 
-Route::get('/updateAadhaar/{query?}', [getRequestController::class, 'updateAadhaar']);
+Route::post('/updateAadhaar/{query}', [getRequestController::class, 'updateAadhaar']);
 
 Route::post('/getInputQuery', [getRequestController::class, 'processQuery']);
 
 Route::get('/speech', function(){
     return view('main.speech');
 });
+
+Route::post('/sendSMS/{msg}', [getRequestController::class, 'followUpMsg']);
 
 Route::get('/speech2text', function(){
     return view('main.speech2text');
