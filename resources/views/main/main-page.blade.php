@@ -114,15 +114,14 @@
 
 
                 <!-- first menu -->
-                {{-- <hr> 
+                <hr>
                 <div class="first-menu col-12 my-3">
-                    {{-- <form action="/getQuery/" method="post"> --}}
                     <ul id="menu-list">
-                        <li class="bg-1">
-                            <a href="{{ url('/aadhaarService') }}" class="service" data-text="Aadhaar-Services">
+                         <li class="bg-1">
+                            <a href="{{ url('/updateAadhaar') }}" class="service" data-text="Update-Aadhaar">
                                 {{-- <img src="" alt=""> --}}
                                 <span>
-                                    Aadhaar Services
+                                    Update Addhar
                                 </span>
                             </a>
                         </li>
@@ -135,27 +134,8 @@
                             </a>
                         </li>
                     </ul>
-                    <ul>
-                        <li class="bg-3">
-                            <a href="{{ url('/updateAadhaar') }}" class="service" data-text="Update-Aadhaar">
-                                {{-- <img src="" alt=""> --}}
-                                <span>
-                                    Update Addhar
-                                </span>
-                            </a>
-                        </li>
-                        <li class="bg-4">
-                            <a href="{{ url('/bookAppointment') }}" class="service" data-text="Book-Appointment">
-                                {{-- <img src="" alt=""> --}}
-                                <span>
-                                    Book appointment
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                    {{-- </form> --}}
-                </div>--}}
-                {{-- <hr> --}}
+                    <hr>
+                </div>
 
                 <!-- append user messege here -->
 
@@ -216,7 +196,7 @@
                 pageLanguage: 'en'}, 'google_translate_element');
         }
 
-        
+
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
