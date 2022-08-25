@@ -247,25 +247,20 @@ $("document").ready(function () {
                                     j++;
                                 }
 
-                                // var menu_msg = function(){
-                                //     for(var i=0;i<main_menu_array.length;i++){
-                                //         var list = main_menu_array[i];
-
-                                //         list = document.createElement('li');
-                                //     }
-                                // }
+                                var menu_msg = "<div class='system-msg update-menu-list'><ul class='ps-0'>";
+                                for(var i=0;i<main_menu_array.length;i++){
+                                    var list = "<li class='btn pb-1 d-block border border-dark text-capitalize' style='text-decoration: none; text-align: left;'>"+main_menu_array[i]+"</li>";
+                                    menu_msg += list;
+                                }
+                                menu_msg += "</ul></div>";
 
                                 // console.log(menu_msg);
 
-                                // var msg="<div class='system-msg'><ul>" +
-                                // menu_msg +
-                                // "</ul></div>";
-
-                                console.log(main_menu_array);
+                                $('.msg-body').last().append(menu_msg);
                             },
                             error: function () {},
                             complete: function () {
-                                sendSMS("Your phone number is verified.");
+                                // sendSMS("Your phone number is verified.");
                             },
                         });
                         $("#input-type").attr("value", "normal-query");
