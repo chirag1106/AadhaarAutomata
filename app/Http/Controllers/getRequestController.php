@@ -96,7 +96,7 @@ class getRequestController extends Controller
                 }
             }
             else{
-                $arr = ['status' => 'false', 'message' => 'This phone number is not registered.'];
+                $arr = ['status' => 'false', 'message' => 'This number is not linked to aadhaar.'];
                 print_r(json_encode($arr));
             }
         }

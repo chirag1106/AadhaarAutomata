@@ -133,19 +133,10 @@ $("document").ready(function () {
     var msg;
     $(".service").click(function (e) {
         e.preventDefault();
-        if (sessionStorage.getItem("phone") == "verified") {
-            var link = $(this).attr("href");
-            alert(link);
-            $.ajax({
-                url: link,
-                data: $(this).attr("data-text"),
-                type: "post",
-                beforeSend: function () { },
-                success: function (response) { },
-                error: function (xhr, ajaxOptions, thrownErro) { },
-                complete: function () { },
-            });
-        } else {
+        if (sessionStorage.getItem("phone") != "verified") {
+
+
+        // } else {
             msg =
                 '<div class="system-msg">Please! Enter your phone number?</div>';
             if (value == 0) {
@@ -198,15 +189,35 @@ $("document").ready(function () {
                 target_content(target, msg);
 
                 if ($('#input-type').attr('value') == "phone") {
-                    msg = "<div class='system-msg loading-spin'>" +
+                    if(output.status == 'true'){
+
+                        msg = "<div class='system-msg loading-spin'>" +
                         "Enter your OTP: " +
                         "</div>";
-                    target_content(target, msg);
+                        target_content(target, msg);
+                        $("#input-type").attr("value", 'otp');
+                        $("#form-input").attr("type", "number");
+                    }
+                    else{
+                        msg = '<div class="system-msg">Please! Enter your phone number?</div>';
+                        target_content(target, msg);
+                        $("#form-input").attr("type", "number");
+                        $("#input-type").attr("value", "phone");
+                    }
                 }
-                else if ($('#input-type').attr('value') == "otp" && output.status == "true") {
-                    sessionStorage.setItem("phone", "verified")
-                    firstMenu();
+                else if ($('#input-type').attr('value') == "otp") {
+                    if(output.status == 'true'){
+                        sessionStorage.setItem("phone", "verified");
+                        $("#input-type").attr("value", "normal-query");
+                        $("#form-input").attr("type", "text");
+                    }
+                    else{
+                        $("#input-type").attr("value", "otp");
+                        $("#form-input").attr("type", "number");
+                    }
+
                 }
+
             },
             error: function (xhr, ajaxOptions, thrownErro) {
                 var error = JSON.parse(xhr.responseText);
@@ -224,14 +235,14 @@ $("document").ready(function () {
                 var user_msg_check = $('.user-msg').last();
                 user_msg_check.find('.loader').removeClass('loader').addClass('fa-solid fa-check');
 
-                if ($("#input-type").attr("value") == "phone") {
-                    $("#input-type").attr("value", 'otp');
-                    $("#form-input").attr("type", "number");
-                }
-                else {
-                    $("#input-type").attr("value", "normal-query");
-                    $("#form-input").attr("type", "text");
-                }
+                // if ($("#input-type").attr("value") == "phone") {
+                //     // $("#input-type").attr("value", 'otp');
+                //     // $("#form-input").attr("type", "number");
+                // }
+                // else {
+                //     $("#input-type").attr("value", "normal-query");
+                //     $("#form-input").attr("type", "text");
+                // }
             },
         });
     }
@@ -260,4 +271,10 @@ $("document").ready(function () {
             .trigger('change');
     });
 
+    // $("#queryForm").submit(function (e) {
+    //     e.preventDefault();
+    //     // $("#form-input").attr("type", "text");
+    //     // $("#input-type").attr("value", "normal-query");
+    //     processInput(formName);
+    // });
 });
