@@ -132,6 +132,7 @@ $("document").ready(function () {
     var formName = "#queryForm";
     var msg;
     var clickedService;
+
     $(".service").click(function (e) {
         e.preventDefault();
         if (sessionStorage.getItem("phone") != "verified") {
@@ -230,6 +231,24 @@ $("document").ready(function () {
                             beforeSend: function () {},
                             success: function (response) {
                                 // console.log(response);
+                                var response2 = JSON.parse(response);
+                                var value = response2.menu['value1'];
+                                var split_array = value.split(",");
+                                var main_menu;
+                                var main_menu_array = new Array();
+                                var j = 0;
+                                // console.log(split_array.length);
+                                for (var i = 0; i < split_array.length; i++) {
+                                    main_menu = split_array[i].replace(
+                                        "-",
+                                        " "
+                                    );
+                                    main_menu_array[j] = main_menu;
+                                    j++;
+                                }
+
+                                
+                                console.log(main_menu_array);
                             },
                             error: function () {},
                             complete: function () {
@@ -281,29 +300,9 @@ $("document").ready(function () {
         $.ajax({
             url: BASE_URL + "/sendSMS/" + $msg,
             type: "post",
-            beforeSend: function () {
-                
-            },
+            beforeSend: function () {},
             success: function (response) {
-                // console.log(response);
-
-                var value = response.menu["value1"];
-
-                var split_array = value.split(",");
-
-                // console.log(split_array);
-                var main_menu;
-                var main_menu_array = new Array();
-                var j = 0;
-                // console.log(split_array.length);
-                for (var i = 0; i < split_array.length; i++) {
-                    main_menu = split_array[i].replace("-", " ");
-                    main_menu_array[j] = main_menu;
-                    j++;
-                }
-
-                // for(var i=0; i<main_menu.length; i++){
-                console.log(main_menu_array);
+                console.log(response);
             },
             error: function () {},
             complete: function () {},
