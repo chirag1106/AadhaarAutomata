@@ -247,7 +247,20 @@ $("document").ready(function () {
                                     j++;
                                 }
 
-                                
+                                // var menu_msg = function(){
+                                //     for(var i=0;i<main_menu_array.length;i++){
+                                //         var list = main_menu_array[i];
+
+                                //         list = document.createElement('li');
+                                //     }
+                                // }
+
+                                // console.log(menu_msg);
+
+                                // var msg="<div class='system-msg'><ul>" +
+                                // menu_msg +
+                                // "</ul></div>";
+
                                 console.log(main_menu_array);
                             },
                             error: function () {},

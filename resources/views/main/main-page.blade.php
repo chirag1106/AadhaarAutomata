@@ -111,13 +111,13 @@
                     <br>What would you like to explore?
                 </div>
 
-                <div class="auto-generated">
+                {{-- <div class="auto-generated">
                     <div class="typing">
                         <div class="dot"></div>
                         <div class="dot"></div>
                         <div class="dot"></div>
                     </div>
-                </div>
+                </div> --}}
 
 
 
