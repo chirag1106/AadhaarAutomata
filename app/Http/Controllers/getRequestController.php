@@ -7,8 +7,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Nette\Utils\Random;
 use App\Models\aadhaar_details;
-use App\Models\updateMenu;
 use App\Models\payment;
+use App\Models\updateMenu;
+use App\Models\updateQuery;
 use Exception;
 
 class getRequestController extends Controller
@@ -235,7 +236,20 @@ class getRequestController extends Controller
 
     }
 
-    public function updateForm(){
-        
+    public function updateForm(Request $request){
+
+
+
+        $currentName = $request->input('current-name');
+        $newName = $request->input('new-name');
+        $documentName = $request->input('document-name');
+        $documentNumber = $request->input('document-number');
+        $image = $request->file('uploaded-document');
+        $new_image_name = rand().'.'.$image->getClientOriginalExtension();
+        $image->move(public_path('images'), $new_image_name);
+
+        $imagePath = './images/'.$new_image_name;
+        // dd($imagePath);
+
     }
 }
