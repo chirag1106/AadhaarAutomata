@@ -124,6 +124,98 @@
                         <div class="dot"></div>
                     </div>
                 </div> --}}
+<!-- 
+                <div class="system-msg-2 update-menu-list">
+                    <ul class="ps-0">
+                        <li class="btn pb-1 d-block menu-li u-name text-capitalize" style="text-decoration: none; text-align: left;">update name</li>
+                        <li class="btn pb-1 d-block menu-li u-fname text-capitalize" style="text-decoration: none; text-align: left;">update father-name</li>
+                        <li class="btn pb-1 d-block menu-li u-dob text-capitalize" style="text-decoration: none; text-align: left;">update date-of-birth</li>
+                        <li class="btn pb-1 d-block menu-li u-gender text-capitalize" style="text-decoration: none; text-align: left;">update gender</li>
+                        <li class="btn pb-1 d-block menu-li u-address text-capitalize" style="text-decoration: none; text-align: left;">update address</li>
+                    </ul>
+                </div> -->
+
+                <div class="system-msg m-address">
+                    <form action="">
+                        <label for="">Current Address</label>
+                        <input type="text" value='' disabled>
+                        <label for="">New Address</label>
+                        <input type="text" name="new-name">
+                        <label for="">Choose Your document</label>
+                        <select name="document-name" id="">
+                            <option value="">Choose Your document</option>
+                            <option value="Pan-card">Pan card</option>
+                            <option value="DL">Driving Licence</option>
+                            <option value="PS">Passport</option>
+                        </select>
+                        <label for="">Upload Document</label>
+                        <input type="file" name="uploaded-document">
+                    </form>
+                </div>
+                <div class="system-msg m-dob">
+                    <form action="">
+                        <label for="">Current D.O.B</label>
+                        <input type="text" value='' disabled>
+                        <label for="">New D.O.B</label>
+                        <input type="text" name="new-name">
+                        <select name="document-name" id="">
+                            <option value="">Choose Your document</option>
+                            <option value="Pan-card">Pan card</option>
+                            <option value="DL">Driving Licence</option>
+                            <option value="PS">Passport</option>
+                        </select>
+                        <label for="">Upload Document</label>
+                        <input type="file" name="uploaded-document">
+                    </form>
+                </div>
+                <div class="system-msg m-fname">
+                    <form action="">
+                        <label for="">Current Fathers Name</label>
+                        <input type="text" value='' disabled>
+                        <label for="">New Fathers Name</label>
+                        <input type="text" name="new-name">
+                        <select name="document-name" id="">
+                            <option value="">Choose Your document</option>
+                            <option value="Pan-card">Pan card</option>
+                            <option value="DL">Driving Licence</option>
+                            <option value="PS">Passport</option>
+                        </select>
+                        <label for="">Upload Document</label>
+                        <input type="file" name="uploaded-document">
+                    </form>
+                </div>
+                <div class="system-msg m-gender">
+                    <form action="">
+                        <label for="">Current Gender</label>
+                        <input type="text" value='' disabled>
+                        <label for="">New Gender</label>
+                        <input type="text" name="new-name">
+                        <select name="document-name" id="">
+                            <option value="">Choose Your document</option>
+                            <option value="Pan-card">Pan card</option>
+                            <option value="DL">Driving Licence</option>
+                            <option value="PS">Passport</option>
+                        </select>
+                        <label for="">Upload Document</label>
+                        <input type="file" name="uploaded-document">
+                    </form>
+                </div>
+                <div class="system-msg m-name">
+                    <form action="">
+                        <label for="">Current Name</label>
+                        <input type="text" value='' disabled>
+                        <label for="">New Name</label>
+                        <input type="text" name="new-name">
+                        <select name="document-name" id="">
+                            <option value="">Choose Your document</option>
+                            <option value="Pan-card">Pan card</option>
+                            <option value="DL">Driving Licence</option>
+                            <option value="PS">Passport</option>
+                        </select>
+                        <label for="">Upload Document</label>
+                        <input type="file" name="uploaded-document">
+                    </form>
+                </div>
 
 
 
@@ -135,8 +227,8 @@
                             <a href="{{ url('/updateAadhaar/updateMenu') }}" class="service" data-text="Update-Aadhaar">
                                 {{-- <img src="" alt=""> --}}
                                 <span>
-                                   <span style="text-align: left; ">Update Aadhar</span>
-                                    <ol class="ps-0 mt-2">
+                                    <span style="text-align: left; ">Update Aadhar</span>
+                                    <ol class="ps-0 mt-2" style="text-align: left;">
                                         <li class="w-100 mb-1 px-2" style="border-radius: 3px !important;">Update Address</li>
                                         <li class="w-100 mb-1 px-2" style="border-radius: 3px !important;">Update Date-Of-Birth</li>
                                         <li class="w-100 mb-1 px-2" style="border-radius: 3px !important;">Update Father-Name</li>
@@ -150,7 +242,13 @@
                             <a href="{{ url('/getAadhaar') }}" class="service" data-text="Get-Aadhaar">
                                 {{-- <img src="" alt=""> --}}
                                 <span>
-                                    Get Aadhar
+                                    <span style="text-align: left; ">Get Aadhar</span>
+                                    <ol class="ps-0 mt-2" style="text-align: left; ">
+                                        <li class="w-90 mb-1  ms-1 ps-2" style="border-radius: 3px !important;">Check status</li>
+                                        <li class="w-90 mb-1 ms-1  ps-2" style="border-radius: 3px !important;">Locate an enrolment center</li>
+                                        <li class="w-90 mb-1  ms-1 ps-2" style="border-radius: 3px !important;">Download Aadhaar</li>
+                                        <li class="w-90 mb-1  ms-1 ps-2" style="border-radius: 3px !important;">Retrieve EID/UID</li>
+                                    </ol>
                                 </span>
                             </a>
                         </li>
@@ -212,11 +310,13 @@
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
-                pageLanguage: 'en', includedLanguages:"en,hi,sa,ml,bn,ur,pa,mr,te,ta,gu,kn,or,as"
+                pageLanguage: 'en',
+                includedLanguages: "en,hi,sa,ml,bn,ur,pa,mr,te,ta,gu,kn,or,as"
             }, 'google_translate_element');
         }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </body>
 
 </html>
