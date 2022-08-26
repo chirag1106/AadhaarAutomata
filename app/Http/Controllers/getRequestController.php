@@ -77,6 +77,14 @@ class getRequestController extends Controller
             // dd(array_values($user_details));
             $request->session()->put('user', $user_details);
             $request->session()->put('phone', $phone);
+            foreach($user_details as $user){
+                $request->session()->put('name', $user['name'] );
+                $request->session()->put('address', $user['address']);
+                $request->session()->put('gender', $user['gender']);
+                $request->session()->put('dob', $user['date_of_birth']);
+                $request->session()->put('phone', $user['contact_number']);
+            }
+
 
             if (!empty($user_details)) {
                 $this->otp = rand(100000, 999999);
@@ -225,5 +233,9 @@ class getRequestController extends Controller
 
 
 
+    }
+
+    public function updateForm(){
+        
     }
 }

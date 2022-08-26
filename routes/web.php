@@ -35,3 +35,5 @@ Route::get('/payment', function(){
 });
 
 Route::post('/updatePayment', [getRequestController::class, 'updatePayment']);
+
+Route::post('/updateQueryForm', [getRequestController::class, 'updateForm']);
