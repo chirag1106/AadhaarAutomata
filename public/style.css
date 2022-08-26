@@ -274,13 +274,26 @@
 
 .system-msg-2 {
     width: 75%;
-    padding: 10px;
-    margin-bottom: 8px;
+    padding: 10px 0px;
+    margin-bottom: 3px;
     border-radius: 9px;
     border-bottom-left-radius:2px;
     /* background: #e6e6e6; */
     background: transparent;
     font-size: 0.858769rem;
+}
+
+.system-msg-2 p{
+    margin: 1.5px 0px;
+    padding: 5px 10px;
+    border-radius: 9px;
+    border-bottom-left-radius:2px;
+    background: #e7dbff;
+}
+
+.system-msg-2 p:hover{
+    border: 1px solid #b212eb;
+    transform: scale(1.02);
 }
 
 .user-msg {
@@ -627,4 +640,13 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .main-list{
     display: none;
+}
+
+
+.btn-cus-1{
+    background: #666 !important;
+}
+
+.btn-cus-2{
+    background: #b212eb !important;
 }

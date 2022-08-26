@@ -133,7 +133,7 @@ $("document").ready(function () {
     var msg;
     var clickedService;
     var paymentButton =
-        '<button id="rzp-button1" class="btn btn-outline-dark btn-lg"><i class="fas fa-money-bill"></i>Pay Rs.50</button>';
+        '<button id="rzp-button1" class="btn btn-cus-2 btn-lg"><i class="fas fa-money-bill"></i>Pay Rs.50</button>';
 
     $(".service").click(function (e) {
         e.preventDefault();
@@ -152,7 +152,7 @@ $("document").ready(function () {
                 });
             }
         }
-        else{
+        else {
             // $("#queryForm").submit(function (e) {
             //     e.preventDefault();
             //     processInput(formName);
@@ -240,7 +240,7 @@ $("document").ready(function () {
                         $.ajax({
                             url: clickedService,
                             type: "post",
-                            beforeSend: function () {},
+                            beforeSend: function () { },
                             success: function (response) {
                                 // console.log(response);
                                 var response2 = JSON.parse(response);
@@ -270,7 +270,7 @@ $("document").ready(function () {
                                 //         "<p class='pb-1 d-block menu-li u-name text-capitalize' style='text-decoration: none; text-align: left;'>" +
                                 //         main_menu_array[i] +
                                 //         "</p>";
-                                    // menu_msg += list;
+                                // menu_msg += list;
                                 // }
                                 // var list = "<button type='submit' class='btn pb-1 d-block menu-li u-name text-capitalize' style='text-decoration: none; text-align: left;'>" + main_menu_array[0] + "</button>";
                                 // menu_msg += list;
@@ -289,7 +289,7 @@ $("document").ready(function () {
 
                                 // $('.msg-body').last().append(menu_msg);
                             },
-                            error: function () {},
+                            error: function () { },
                             complete: function () {
                                 // $('.msg-body').html('<div class="system-msg-2 update-menu-list"><ul class="ps-0"><li class="btn pb-1 d-block menu-li u-name text-capitalize" style="text-decoration: none; text-align: left;">update name</li><li class="btn pb-1 d-block menu-li u-fname text-capitalize" style="text-decoration: none; text-align: left;">update father-name</li><li class="btn pb-1 d-block menu-li u-dob text-capitalize" style="text-decoration: none; text-align: left;">update date-of-birth</li><li class="btn pb-1 d-block menu-li u-gender text-capitalize" style="text-decoration: none; text-align: left;">update gender</li><li class="btn pb-1 d-block menu-li u-address text-capitalize" style="text-decoration: none; text-align: left;">update address</li></ul></div>');
                                 // $('.update-menu-list').css("display", "block");
@@ -352,26 +352,69 @@ $("document").ready(function () {
         });
     }
 
-    $('.updateQueryname').click(function(e){
+
+    $('#form-name').submit(function (e) {
+        e.preventDefault();
+        var link = $(this).attr('action');
+        //         var fd = new FormData();
+        // fd.append( 'file', input.files[0] );
+        $.ajax({
+            url: link,
+            type: 'post',
+            data: new FormData(document.getElementById('form-name')),
+            beforeSend: function () {
+                console.log(new FormData($('#form-name').get(0)));
+            },
+            success: function (response) {
+
+            },
+            complete: function () {
+
+                $(paymentButton).appendTo('#form-name');
+                $('.btn-cus-1').css('display','none');
+                $('.btn-cus-2').css('display','none');
+
+            }
+        });
+    });
+
+    $('.updateQueryname').click(function (e) {
         e.preventDefault();
         var link = $('#form-name').attr('action');
         alert(link);
     });
 
-    $('.u-names').click(function(){
-        $('#modal-name').css('display', 'block');
+    $('.u-names').click(function () {
+        $('#modal-name').css('display', 'block').animate({ scrollTop: $("#myID").scrollTop() }, 1000);
+        $('.update-list-menu').css('display', 'none');
+    });
+    $('.u-gen').click(function () {
+        $('#modal-gender').css('display', 'block').css('display', 'block').animate({ scrollTop: $("#myID").scrollTop() }, 1000);
+        $('.update-list-menu').css('display', 'none');
+    });
+    $('.u-dob').click(function () {
+        $('#modal-dob').css('display', 'block').css('display', 'block').animate({ scrollTop: $("#myID").scrollTop() }, 1000);
+        $('.update-list-menu').css('display', 'none');
+    });
+    $('.u-add').click(function () {
+        $('#modal-address').css('display', 'block').css('display', 'block').animate({ scrollTop: $("#myID").scrollTop() }, 1000);
+        $('.update-list-menu').css('display', 'none');
+    });
+    $('.u-fname').click(function () {
+        $('#modal-fname').css('display', 'block').css('display', 'block').animate({ scrollTop: $("#myID").scrollTop() }, 1000);
+        $('.update-list-menu').css('display', 'none');
     });
 
     function sendSMS($msg) {
         $.ajax({
             url: BASE_URL + "/sendSMS/" + $msg,
             type: "post",
-            beforeSend: function () {},
+            beforeSend: function () { },
             success: function (response) {
                 console.log(response);
             },
-            error: function () {},
-            complete: function () {},
+            error: function () { },
+            complete: function () { },
         });
     }
     function firstMenu() {
