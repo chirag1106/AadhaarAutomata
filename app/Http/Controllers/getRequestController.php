@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Session;
 use Nette\Utils\Random;
 use App\Models\aadhaar_details;
 use App\Models\updateMenu;
+use App\Models\payment;
 use Exception;
 
 class getRequestController extends Controller
@@ -195,5 +196,34 @@ class getRequestController extends Controller
         // } else {
         //     echo $response;
         // }
+    }
+
+    public function updatePayment(Request $request){
+        // dd($request->paymentID);
+        $user = Session::get('user');
+        $name = "";
+        $aadhaar = "";
+        foreach($user as $person){
+            $name = $person['name'];
+            $aadhaar = $person['aadhar_number'];
+        }
+       $amount = 50;
+       $paymentStatus = $request->status;
+       $paymentID = $request->paymentID;
+       $addedON = date("Y-m-d");
+
+       $paymentForm = new payment();
+
+       $paymentForm->aadhaar_no = $aadhaar;
+       $paymentForm->name = $name;
+       $paymentForm->amount = $amount;
+       $paymentForm->payment_status = $paymentStatus;
+       $paymentForm->payment_id = $paymentID;
+       $paymentForm->added_on = $addedON;
+
+       $result = $paymentForm->save();
+
+
+
     }
 }

@@ -132,6 +132,7 @@ $("document").ready(function () {
     var formName = "#queryForm";
     var msg;
     var clickedService;
+    var paymentButton = '<button id="rzp-button1" class="btn btn-outline-dark btn-lg"><i class="fas fa-money-bill"></i>Pay Rs.50</button>';
 
     $(".service").click(function (e) {
         e.preventDefault();
@@ -232,7 +233,7 @@ $("document").ready(function () {
                             success: function (response) {
                                 // console.log(response);
                                 var response2 = JSON.parse(response);
-                                var value = response2.menu['value1'];
+                                var value = response2.menu["value1"];
                                 var split_array = value.split(",");
                                 var main_menu;
                                 var main_menu_array = new Array();
@@ -247,16 +248,24 @@ $("document").ready(function () {
                                     j++;
                                 }
 
-                                var menu_msg = "<div class='system-msg-2 update-menu-list'><ul class='ps-0'>";
-                                for(var i=0;i<main_menu_array.length;i++){
-                                    var list = "<li class='btn pb-1 d-block menu-li text-capitalize' style='text-decoration: none; text-align: left;'>"+main_menu_array[i]+"</li>";
+                                var menu_msg =
+                                    "<div class='system-msg-2 update-menu-list'><ul class='ps-0'>";
+                                for (
+                                    var i = 0;
+                                    i < main_menu_array.length;
+                                    i++
+                                ) {
+                                    var list =
+                                        "<li class='btn pb-1 d-block menu-li text-capitalize' style='text-decoration: none; text-align: left;'>" +
+                                        main_menu_array[i] +
+                                        "</li>";
                                     menu_msg += list;
                                 }
                                 menu_msg += "</ul></div>";
 
                                 // console.log(menu_msg);
 
-                                $('.msg-body').last().append(menu_msg);
+                                $(".msg-body").last().append(menu_msg);
                             },
                             error: function () {},
                             complete: function () {
@@ -345,14 +354,55 @@ $("document").ready(function () {
     //     processInput(formName);
     // });
 
-    setInterval(function(){
-        $('body').css('top', 0);
-    }, 10)
+    setInterval(function () {
+        $("body").css("top", 0);
+    }, 10);
 
-    $('.menu-li').on({
-        click: function(){
-            var menu_option = $(this).text()
+    $(".menu-li").on({
+        click: function () {
+            var menu_option = $(this).text();
+        },
+    });
 
-        }
-    })
+    var options = {
+        key: "rzp_test_uKovlltaWXyGkI",
+        amount: "5000",
+        currency: "INR",
+        description: "Aadhaar Services",
+        image: "https://s3.amazonaws.com/rzp-mobile/images/rzp.jpg",
+        handler: function (response) {
+            console.log(response);
+            // if (response.status_code == "200") {
+                var status;
+                if(response.razorpay_payment_id != null){
+                    status = 'true';
+                    msg =
+                            '<div class="system-msg">Payment Successfully done.</div> <div class="system-msg">Your details will be updated with 8 - 10 working days. </div>';
+                }
+                else{
+                    status = 'false';
+                    msg = '<div class="system-msg">Payment Failed </div>';
+                }
+
+                $.ajax({
+                    url: BASE_URL + "/updatePayment",
+                    type: "post",
+                    data: "paymentID=" + response.razorpay_payment_id+"&status="+status,
+                    success: function (response) {
+                        target_content(target, msg);
+                    },
+                });
+        },
+    };
+
+    var rzp1 = new Razorpay(options);
+    document.getElementById("rzp-button1").onclick = function (e) {
+        rzp1.open();
+        e.preventDefault();
+    };
+
+    $('.menu-li').click(function(e){
+        e.preventDefault();
+        alert('chirag');
+    });
 });
