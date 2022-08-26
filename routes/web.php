@@ -29,3 +29,11 @@ Route::post('/sendSMS/{msg}', [getRequestController::class, 'followUpMsg']);
 Route::get('/speech2text', function(){
     return view('main.speech2text');
 });
+
+Route::get('/payment', function(){
+    return view('main.payment');
+});
+
+Route::post('/updatePayment', [getRequestController::class, 'updatePayment']);
+
+Route::post('/updateQueryForm', [getRequestController::class, 'updateForm']);

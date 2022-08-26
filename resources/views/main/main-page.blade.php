@@ -48,7 +48,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="button" class="btn mx-1 px-3 rounded-pill btn-custom-col2 go-btn english" data-bs-dismiss="modal" data-lang="en-US">GO</button>
+                            <button type="button" class="btn mx-1 px-3 rounded-pill btn-custom-col2 go-btn english"
+                                data-bs-dismiss="modal" data-lang="en-US">GO</button>
                             {{-- <button type="button" class="btn mx-1 px-4 rounded-pill btn-custom-col2 hindi" data-lang="hi-IN">हिन्दी</button>
                             <p class="my-3">अपनी पसंदीदा भाषा चुनें</p> --}}
                         </div>
@@ -117,6 +118,8 @@
                     <br>What would you like to explore?
                 </div>
 
+                {{-- <button id="rzp-button1" class="btn btn-outline-dark btn-lg"><i class="fas fa-money-bill"></i>Pay Rs.50</button>' --}}
+
                 {{-- <div class="auto-generated">
                     <div class="typing">
                         <div class="dot"></div>
@@ -124,98 +127,130 @@
                         <div class="dot"></div>
                     </div>
                 </div> --}}
-<!-- 
-                <div class="system-msg-2 update-menu-list">
-                    <ul class="ps-0">
-                        <li class="btn pb-1 d-block menu-li u-name text-capitalize" style="text-decoration: none; text-align: left;">update name</li>
-                        <li class="btn pb-1 d-block menu-li u-fname text-capitalize" style="text-decoration: none; text-align: left;">update father-name</li>
-                        <li class="btn pb-1 d-block menu-li u-dob text-capitalize" style="text-decoration: none; text-align: left;">update date-of-birth</li>
-                        <li class="btn pb-1 d-block menu-li u-gender text-capitalize" style="text-decoration: none; text-align: left;">update gender</li>
-                        <li class="btn pb-1 d-block menu-li u-address text-capitalize" style="text-decoration: none; text-align: left;">update address</li>
-                    </ul>
-                </div> -->
 
-                <div class="system-msg m-address">
-                    <form action="">
-                        <label for="">Current Address</label>
-                        <input type="text" value='' disabled>
-                        <label for="">New Address</label>
-                        <input type="text" name="new-name">
-                        <label for="">Choose Your document</label>
-                        <select name="document-name" id="">
-                            <option value="">Choose Your document</option>
-                            <option value="Pan-card">Pan card</option>
-                            <option value="DL">Driving Licence</option>
-                            <option value="PS">Passport</option>
-                        </select>
-                        <label for="">Upload Document</label>
-                        <input type="file" name="uploaded-document">
-                    </form>
+                {{-- <div class="outer-main-list"> --}}
+                <div class="main-list">
+                    {{-- <div class="system-msg-2 update-menu-list">
+                        <ul class="ps-0">
+                            <li class="pb-1 menu-li text-capitalize" style="list-style-type: none; text-align: left;">
+                                <button id="u-name"
+                                    onclick="document.getElementById('modal-name').style.display= 'block'">update
+                                    name</button></li>
+                            <li class="pb-1 menu-li u-fname text-capitalize"
+                                style="list-style-type: none; text-align: left;"><button id="u-name"
+                                    onclick="document.getElementById('modal-fname').style.display= 'block'">update
+                                    father-name</button></li>
+                            <li class="pb-1 menu-li u-dob text-capitalize"
+                                style="list-style-type: none; text-align: left;"><button id="u-name"
+                                    onclick="document.getElementById('modal-dob').style.display= 'block'">update
+                                    date-of-birth</button></li>
+                            <li class="pb-1 menu-li u-gender text-capitalize"
+                                style="list-style-type: none; text-align: left;"><button id="u-name"
+                                    onclick="document.getElementById('modal-gender').style.display= 'block'">update
+                                    gender</button></li>
+                            <li class="pb-1 menu-li u-address text-capitalize"
+                                style="list-style-type: none; text-align: left;"><button id="u-name"
+                                    onclick="document.getElementById('modal-address').style.display= 'block'">update
+                                    address</button></li>
+                        </ul>
+                    </div> --}}
+
+
+                    <div class="system-msg">
+                        <p class="u-names">Update Name</p>
+                        <p class="u-names">Update Father-name</p>
+                        <p class="u-names">Update Date-of-birth</p>
+                        <p class="u-names">Update Gender</p>
+                        <p class="u-names">Update Address</p>
+                    </div>
+
+                    <div class="system-msg m-address" id="modal-address">
+                        <form action="">
+                            <label for="">Current Address</label>
+                            <input type="text" value='' disabled>
+                            <label for="">New Address</label>
+                            <input type="text" name="new-name">
+                            <label for="">Choose Your document</label>
+                            <select name="document-name" id="">
+                                <option value="">Choose Your document</option>
+                                <option value="Pan-card">Pan card</option>
+                                <option value="DL">Driving Licence</option>
+                                <option value="PS">Passport</option>
+                            </select>
+                            <label for="">Upload Document</label>
+                            <input type="file" name="uploaded-document">
+                        </form>
+                    </div>
+                    <div class="system-msg m-dob" id="modal-dob">
+                        <form action="">
+                            <label for="">Current D.O.B</label>
+                            <input type="text" value='' disabled>
+                            <label for="">New D.O.B</label>
+                            <input type="text" name="new-name">
+                            <select name="document-name" id="">
+                                <option value="">Choose Your document</option>
+                                <option value="Pan-card">Pan card</option>
+                                <option value="DL">Driving Licence</option>
+                                <option value="PS">Passport</option>
+                            </select>
+                            <label for="">Upload Document</label>
+                            <input type="file" name="uploaded-document">
+                        </form>
+                    </div>
+                    <div class="system-msg m-fname" id="modal-fname">
+                        <form action="">
+                            <label for="">Current Fathers Name</label>
+                            <input type="text" value='' disabled>
+                            <label for="">New Fathers Name</label>
+                            <input type="text" name="new-name">
+                            <select name="document-name" id="">
+                                <option value="">Choose Your document</option>
+                                <option value="Pan-card">Pan card</option>
+                                <option value="DL">Driving Licence</option>
+                                <option value="PS">Passport</option>
+                            </select>
+                            <label for="">Upload Document</label>
+                            <input type="file" name="uploaded-document">
+                        </form>
+                    </div>
+                    <div class="system-msg m-gender" id="modal-gender">
+                        <form action="">
+                            <label for="">Current Gender</label>
+                            <input type="text" value='' disabled>
+                            <label for="">New Gender</label>
+                            <input type="text" name="new-name">
+                            <select name="document-name" id="">
+                                <option value="">Choose Your document</option>
+                                <option value="Pan-card">Pan card</option>
+                                <option value="DL">Driving Licence</option>
+                                <option value="PS">Passport</option>
+                            </select>
+                            <label for="">Upload Document</label>
+                            <input type="file" name="uploaded-document">
+                        </form>
+                    </div>
+                    <div class="system-msg m-name" id="modal-name">
+                        <form action="{{ url('/updateQueryForm') }}" method="post" id="form-name" enctype="multipart/form-data">
+                            <label for="">Current Name:</label>
+                            <input type="text" value='{{ Session::get('name') }}' disabled>
+                            <label for="">Enter new name:</label>
+                            <input type="text" name="new-name">
+                            <select name="document-name" id="">
+                                <option value="">Choose Your document:</option>
+                                <option value="PC">Pan card</option>
+                                <option value="DL">Driving Licence</option>
+                                <option value="PS">Passport</option>
+                            </select>
+                            <label for="">Enter your Document number</label>
+                            <input type="text" name="document-number">
+                            <label for="">Upload Document:</label>
+                            <input type="file" name="uploaded-document">
+                            <button type="submit" class="btn btn-info text-white">Reset</button>
+                            <button type="submit" class="btn btn-warning text-white updateQueryname">Submit</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="system-msg m-dob">
-                    <form action="">
-                        <label for="">Current D.O.B</label>
-                        <input type="text" value='' disabled>
-                        <label for="">New D.O.B</label>
-                        <input type="text" name="new-name">
-                        <select name="document-name" id="">
-                            <option value="">Choose Your document</option>
-                            <option value="Pan-card">Pan card</option>
-                            <option value="DL">Driving Licence</option>
-                            <option value="PS">Passport</option>
-                        </select>
-                        <label for="">Upload Document</label>
-                        <input type="file" name="uploaded-document">
-                    </form>
-                </div>
-                <div class="system-msg m-fname">
-                    <form action="">
-                        <label for="">Current Fathers Name</label>
-                        <input type="text" value='' disabled>
-                        <label for="">New Fathers Name</label>
-                        <input type="text" name="new-name">
-                        <select name="document-name" id="">
-                            <option value="">Choose Your document</option>
-                            <option value="Pan-card">Pan card</option>
-                            <option value="DL">Driving Licence</option>
-                            <option value="PS">Passport</option>
-                        </select>
-                        <label for="">Upload Document</label>
-                        <input type="file" name="uploaded-document">
-                    </form>
-                </div>
-                <div class="system-msg m-gender">
-                    <form action="">
-                        <label for="">Current Gender</label>
-                        <input type="text" value='' disabled>
-                        <label for="">New Gender</label>
-                        <input type="text" name="new-name">
-                        <select name="document-name" id="">
-                            <option value="">Choose Your document</option>
-                            <option value="Pan-card">Pan card</option>
-                            <option value="DL">Driving Licence</option>
-                            <option value="PS">Passport</option>
-                        </select>
-                        <label for="">Upload Document</label>
-                        <input type="file" name="uploaded-document">
-                    </form>
-                </div>
-                <div class="system-msg m-name">
-                    <form action="">
-                        <label for="">Current Name</label>
-                        <input type="text" value='' disabled>
-                        <label for="">New Name</label>
-                        <input type="text" name="new-name">
-                        <select name="document-name" id="">
-                            <option value="">Choose Your document</option>
-                            <option value="Pan-card">Pan card</option>
-                            <option value="DL">Driving Licence</option>
-                            <option value="PS">Passport</option>
-                        </select>
-                        <label for="">Upload Document</label>
-                        <input type="file" name="uploaded-document">
-                    </form>
-                </div>
+            {{-- </div> --}}
 
 
 
@@ -224,16 +259,22 @@
                 <div class="first-menu col-12 my-3">
                     <ul id="menu-list">
                         <li class="bg-1">
-                            <a href="{{ url('/updateAadhaar/updateMenu') }}" class="service" data-text="Update-Aadhaar">
+                            <a href="{{ url('/updateAadhaar/updateMenu') }}" class="service"
+                                data-text="Update-Aadhaar">
                                 {{-- <img src="" alt=""> --}}
                                 <span>
                                     <span style="text-align: left; ">Update Aadhar</span>
                                     <ol class="ps-0 mt-2" style="text-align: left;">
-                                        <li class="w-100 mb-1 px-2" style="border-radius: 3px !important;">Update Address</li>
-                                        <li class="w-100 mb-1 px-2" style="border-radius: 3px !important;">Update Date-Of-Birth</li>
-                                        <li class="w-100 mb-1 px-2" style="border-radius: 3px !important;">Update Father-Name</li>
-                                        <li class="w-100 mb-1 px-2" style="border-radius: 3px !important;">Update Gender</li>
-                                        <li class="w-100 mb-1 px-2" style="border-radius: 3px !important;">Update Name</li>
+                                        <li class="w-100 mb-1 px-2" style="border-radius: 3px !important;">Update
+                                            Address</li>
+                                        <li class="w-100 mb-1 px-2" style="border-radius: 3px !important;">Update
+                                            Date-Of-Birth</li>
+                                        <li class="w-100 mb-1 px-2" style="border-radius: 3px !important;">Update
+                                            Father-Name</li>
+                                        <li class="w-100 mb-1 px-2" style="border-radius: 3px !important;">Update
+                                            Gender</li>
+                                        <li class="w-100 mb-1 px-2" style="border-radius: 3px !important;">Update Name
+                                        </li>
                                     </ol>
                                 </span>
                             </a>
@@ -244,10 +285,14 @@
                                 <span>
                                     <span style="text-align: left; ">Get Aadhar</span>
                                     <ol class="ps-0 mt-2" style="text-align: left; ">
-                                        <li class="w-90 mb-1  ms-1 ps-2" style="border-radius: 3px !important;">Check status</li>
-                                        <li class="w-90 mb-1 ms-1  ps-2" style="border-radius: 3px !important;">Locate an enrolment center</li>
-                                        <li class="w-90 mb-1  ms-1 ps-2" style="border-radius: 3px !important;">Download Aadhaar</li>
-                                        <li class="w-90 mb-1  ms-1 ps-2" style="border-radius: 3px !important;">Retrieve EID/UID</li>
+                                        <li class="w-90 mb-1  ms-1 ps-2" style="border-radius: 3px !important;">Check
+                                            status</li>
+                                        <li class="w-90 mb-1 ms-1  ps-2" style="border-radius: 3px !important;">Locate
+                                            an enrolment center</li>
+                                        <li class="w-90 mb-1  ms-1 ps-2" style="border-radius: 3px !important;">
+                                            Download Aadhaar</li>
+                                        <li class="w-90 mb-1  ms-1 ps-2" style="border-radius: 3px !important;">
+                                            Retrieve EID/UID</li>
                                     </ol>
                                 </span>
                             </a>
@@ -255,6 +300,103 @@
                     </ul>
                     <!-- <hr class="hr-menu"> -->
                 </div>
+
+                {{-- <div class="update-menu-first">
+                    <div class="main-list">
+                        <div class="system-msg-2 update-menu-list">
+                            <ul class="ps-0">
+                                <li class="pb-1 menu-li text-capitalize" style="list-style-type: none; text-align: left;"><button id="u-name" onclick= "document.getElementById('modal-name').style.display= 'block'">update name</button></li>
+                                <li class="pb-1 menu-li u-fname text-capitalize" style="list-style-type: none; text-align: left;"><button id="u-name" onclick= "document.getElementById('modal-fname').style.display= 'block'">update father-name</button></li>
+                                <li class="pb-1 menu-li u-dob text-capitalize" style="list-style-type: none; text-align: left;"><button id="u-name" onclick= "document.getElementById('modal-dob').style.display= 'block'">update date-of-birth</button></li>
+                                <li class="pb-1 menu-li u-gender text-capitalize" style="list-style-type: none; text-align: left;"><button id="u-name" onclick= "document.getElementById('modal-gender').style.display= 'block'">update gender</button></li>
+                                <li class="pb-1 menu-li u-address text-capitalize" style="list-style-type: none; text-align: left;"><button id="u-name" onclick= "document.getElementById('modal-address').style.display= 'block'">update address</button></li>
+                            </ul>
+                        </div>
+
+
+                        <div class="system-msg m-address" id="modal-address">
+                            <form action="">
+                                <label for="">Current Address</label>
+                                <input type="text" value='' disabled>
+                                <label for="">New Address</label>
+                                <input type="text" name="new-name">
+                                <label for="">Choose Your document</label>
+                                <select name="document-name" id="">
+                                    <option value="">Choose Your document</option>
+                                    <option value="Pan-card">Pan card</option>
+                                    <option value="DL">Driving Licence</option>
+                                    <option value="PS">Passport</option>
+                                </select>
+                                <label for="">Upload Document</label>
+                                <input type="file" name="uploaded-document">
+                            </form>
+                        </div>
+                        <div class="system-msg m-dob" id="modal-dob">
+                            <form action="">
+                                <label for="">Current D.O.B</label>
+                                <input type="text" value='' disabled>
+                                <label for="">New D.O.B</label>
+                                <input type="text" name="new-name">
+                                <select name="document-name" id="">
+                                    <option value="">Choose Your document</option>
+                                    <option value="Pan-card">Pan card</option>
+                                    <option value="DL">Driving Licence</option>
+                                    <option value="PS">Passport</option>
+                                </select>
+                                <label for="">Upload Document</label>
+                                <input type="file" name="uploaded-document">
+                            </form>
+                        </div>
+                        <div class="system-msg m-fname" id="modal-fname">
+                            <form action="">
+                                <label for="">Current Fathers Name</label>
+                                <input type="text" value='' disabled>
+                                <label for="">New Fathers Name</label>
+                                <input type="text" name="new-name">
+                                <select name="document-name" id="">
+                                    <option value="">Choose Your document</option>
+                                    <option value="Pan-card">Pan card</option>
+                                    <option value="DL">Driving Licence</option>
+                                    <option value="PS">Passport</option>
+                                </select>
+                                <label for="">Upload Document</label>
+                                <input type="file" name="uploaded-document">
+                            </form>
+                        </div>
+                        <div class="system-msg m-gender" id="modal-gender">
+                            <form action="">
+                                <label for="">Current Gender</label>
+                                <input type="text" value='' disabled>
+                                <label for="">New Gender</label>
+                                <input type="text" name="new-name">
+                                <select name="document-name" id="">
+                                    <option value="">Choose Your document</option>
+                                    <option value="Pan-card">Pan card</option>
+                                    <option value="DL">Driving Licence</option>
+                                    <option value="PS">Passport</option>
+                                </select>
+                                <label for="">Upload Document</label>
+                                <input type="file" name="uploaded-document">
+                            </form>
+                        </div>
+                        <div class="system-msg m-name" id="modal-name">
+                            <form action="">
+                                <label for="">Current Name</label>
+                                <input type="text" value='' disabled>
+                                <label for="">New Name</label>
+                                <input type="text" name="new-name">
+                                <select name="document-name" id="">
+                                    <option value="">Choose Your document</option>
+                                    <option value="Pan-card">Pan card</option>
+                                    <option value="DL">Driving Licence</option>
+                                    <option value="PS">Passport</option>
+                                </select>
+                                <label for="">Upload Document</label>
+                                <input type="file" name="uploaded-document">
+                            </form>
+                        </div>
+                    </div>
+                </div> --}}
 
                 <!-- append user messege here -->
 
@@ -274,10 +416,13 @@
 
 
 
-                        <input type="text" placeholder="Enter your query here..." name="input_query" id="form-input" class="ms-2">
+
+                        <input type="text" placeholder="Enter your query here..." name="input_query"
+                            id="form-input" class="ms-2">
                         <input type="hidden" name="query_type" value="" id="input-type" class="ms-2">
                         {{-- <input type="submit" value="Submit" class="btn btn-info"> --}}
-                        <img src="{{ asset('/mic.png') }}" alt="" class="img-fluid mic" style="width:25px; height:25px">
+                        <img src="{{ asset('/mic.png') }}" alt="" class="img-fluid mic"
+                            style="width:25px; height:25px">
                         <div class="formQuery-btn">
                             <button id="formTypedQuerySubmit" class="chat-btnx" type="submit">
                                 <img class="chat-send" src="bot.png" alt="">
@@ -286,7 +431,8 @@
                     </div>
                 </form>
             </div>
-            <div class="tool-bar col-12 d-flex flex-nowrap justify-content-between align-items-center align-content-center">
+            <div
+                class="tool-bar col-12 d-flex flex-nowrap justify-content-between align-items-center align-content-center">
                 <!-- <div class="powered">
                     <span style="font-size: 0.65rem">Powered-By: Ray-Of-Identity </span>
                 </div> -->
@@ -305,8 +451,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="app.js"></script>
-    <script src="speechToText.js"></script>
-    <script src="text2speech.js"></script>
+    {{-- <script src="speechToText.js"></script> --}}
+    {{-- <script src="text2speech.js"></script> --}}
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
@@ -315,8 +461,10 @@
             }, 'google_translate_element');
         }
     </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    {{-- <script src="payment.js"></script> --}}
 </body>
 
 </html>

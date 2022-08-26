@@ -624,3 +624,7 @@ input[type="number"]::-webkit-outer-spin-button {
     font-weight: 900;
     font-size:20px
 } */
+
+.main-list{
+    display: none;
+}
