@@ -466,7 +466,7 @@ $("document").ready(function () {
             if (response.razorpay_payment_id != null) {
                 status = "true";
                 msg ='<div class="system-msg">Payment Successfully done.</div> <div class="system-msg">Your details will be updated with 8 - 10 working days. </div>';
-                // function sendSMS(msg);
+                sendSMS(msg);
             } else {
                 status = "false";
                 msg = '<div class="system-msg">Payment Failed </div>';
