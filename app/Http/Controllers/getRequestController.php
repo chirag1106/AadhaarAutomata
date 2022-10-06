@@ -47,7 +47,7 @@ class getRequestController extends Controller
             } else {
                 // dd($this->otp);
                 if ($request['input_query'] == Session::get('otp')) {
-                    $arr = ['status' => 'true', 'message' => 'Welcome! Chirag, How may I help?', 'menu' => 'firstMenu'];
+                    $arr = ['status' => 'true', 'message' => 'Welcome! '.Session::get('name').', How may I help?', 'menu' => 'firstMenu'];
                     print_r(json_encode($arr));
                 } else {
                     $arr = ['status' => 'false', 'message' => 'Wrong OTP! Kindly enter correct otp.'];
