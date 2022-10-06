@@ -133,7 +133,7 @@ $("document").ready(function () {
     var msg;
     var clickedService;
     var paymentButton =
-        '<button id="rzp-button1" class="btn btn-cus-2 btn-lg"><i class="fas fa-money-bill"></i>Pay Rs.50</button>';
+        '<button id="rzp-button1" class="btn btn-outline-dark"><i class="fas fa-money-bill"></i>Pay Rs.50</button>';
 
     $(".service").click(function (e) {
         e.preventDefault();
@@ -356,8 +356,8 @@ $("document").ready(function () {
     $('#form-name').submit(function (e) {
         e.preventDefault();
         var link = $(this).attr('action');
-        //         var fd = new FormData();
-        // fd.append( 'file', input.files[0] );
+                var fd = new FormData();
+        fd.append( 'file', input.files[0] );
         $.ajax({
             url: link,
             type: 'post',
@@ -370,19 +370,22 @@ $("document").ready(function () {
             },
             complete: function () {
 
-                $(paymentButton).appendTo('#form-name');
-                $('.btn-cus-1').css('display','none');
-                $('.btn-cus-2').css('display','none');
+                // $(paymentButton).appendTo('#form-name');
+                // $('.btn-cus-1').css('display','none');
+                // $('.btn-cus-2').css('display','none');
 
             }
         });
+        // $('.btn-cus-1').css('display','none');
+        // $('.btn-cus-2').css('display','none');
+        // $('#form-name').append('<button id="rzp-button1" class="btn btn-outline-dark"><i class="fas fa-money-bill"></i>Pay Rs.50</button>');
     });
 
-    $('.updateQueryname').click(function (e) {
-        e.preventDefault();
-        var link = $('#form-name').attr('action');
-        alert(link);
-    });
+    // $('.updateQueryname').click(function (e) {
+    //     e.preventDefault();
+    //     var link = $('#form-name').attr('action');
+    //     alert(link);
+    // });
 
     $('.u-names').click(function () {
         $('#modal-name').css('display', 'block').animate({ scrollTop: $("#myID").scrollTop() }, 1000);
@@ -462,8 +465,8 @@ $("document").ready(function () {
             var status;
             if (response.razorpay_payment_id != null) {
                 status = "true";
-                msg =
-                    '<div class="system-msg">Payment Successfully done.</div> <div class="system-msg">Your details will be updated with 8 - 10 working days. </div>';
+                msg ='<div class="system-msg">Payment Successfully done.</div> <div class="system-msg">Your details will be updated with 8 - 10 working days. </div>';
+                sendSMS(msg);
             } else {
                 status = "false";
                 msg = '<div class="system-msg">Payment Failed </div>';
@@ -489,6 +492,19 @@ $("document").ready(function () {
         rzp1.open();
         e.preventDefault();
     };
+
+    function sendSMS($msg) {
+        $.ajax({
+            url: BASE_URL + "/sendSMS/" + $msg,
+            type: "post",
+            beforeSend: function () { },
+            success: function (response) {
+                console.log(response);
+            },
+            error: function () { },
+            complete: function () { },
+        });
+    }
 
     // $("menu-li").click(function(e){
     //     e.preventDefault();

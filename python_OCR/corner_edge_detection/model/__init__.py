@@ -1,0 +1,1 @@
+from corner_edge_detection.model.modelfactory import *

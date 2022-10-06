@@ -117,7 +117,7 @@
                     <br>What would you like to explore?
                 </div>
 
-                {{-- <button id="rzp-button1" class="btn btn-outline-dark btn-lg"><i class="fas fa-money-bill"></i>Pay Rs.50</button>' --}}
+
 
                 {{-- <div class="auto-generated">
                     <div class="typing">
@@ -156,6 +156,7 @@
 
 
                     <div class="system-msg-2 update-list-menu">
+                        <button id="rzp-button1" class="btn btn-outline-dark btn-lg"><i class="fas fa-money-bill"></i>Pay Rs.50</button>'
                         <p class="u-names">Update Name</p>
                         <p class="u-fname">Update Father-name</p>
                         <p class="u-dob">Update Date-of-birth</p>
@@ -182,6 +183,7 @@
                             <input type="file" name="image">
                             <button type="submit" class="btn btn-cus-1 mt-2 text-white">Reset</button>
                             <button type="submit" class="btn btn-cus-2 mt-2 text-white updateQueryname">Submit</button>
+                            {{-- <button id="rzp-button1" class="btn btn-outline-dark"><i class="fas fa-money-bill"></i>Pay Rs.50</button> --}}
                         </form>
                     </div>
                     <div class="system-msg m-dob" id="modal-dob">
@@ -202,6 +204,7 @@
                             <input type="file" name="image">
                             <button type="button" class="btn btn-cus-1 mt-2 text-white">Reset</button>
                             <button type="submit" class="btn btn-cus-2 mt-2 text-white updateQueryname">Submit</button>
+                            <button id="rzp-button1" class="btn btn-outline-dark"><i class="fas fa-money-bill"></i>Pay Rs.50</button>
                         </form>
                     </div>
                     <div class="system-msg m-fname" id="modal-fname">
@@ -222,6 +225,7 @@
                             <input type="file" name="image">
                             <button type="button" class="btn btn-cus-1 mt-2 text-white">Reset</button>
                             <button type="submit" class="btn btn-cus-2 mt-2 text-white updateQueryname">Submit</button>
+                            <button id="rzp-button1" class="btn btn-outline-dark"><i class="fas fa-money-bill"></i>Pay Rs.50</button>
                         </form>
                     </div>
                     <div class="system-msg m-gender" id="modal-gender">
@@ -242,6 +246,7 @@
                             <input type="file" name="image">
                             <button type="button" class="btn btn-cus-1 mt-2 text-white">Reset</button>
                             <button type="submit" class="btn btn-cus-2 mt-2 text-white updateQueryname">Submit</button>
+                            <button id="rzp-button1" class="btn btn-outline-dark"><i class="fas fa-money-bill"></i>Pay Rs.50</button>
                         </form>
                     </div>
                     <div class="system-msg m-name" id="modal-name">
@@ -265,6 +270,7 @@
                             <button type="button" class="btn btn-cus-1 mt-2 text-white">Reset</button>
                             <button type="submit" class="btn btn-cus-2 mt-2 text-white updateQueryname">Submit</button>
                         </form>
+                        <button id="rzp-button1" class="btn btn-outline-dark"><i class="fas fa-money-bill"></i>Pay Rs.50</button>
                     </div>
                 </div>
                 {{-- </div> --}}
