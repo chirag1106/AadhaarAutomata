@@ -481,7 +481,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="app.js"></script>
-    {{-- <script src="speechToText.js"></script> --}}
+    <script src="speechToText.js"></script>
     {{-- <script src="text2speech.js"></script> --}}
     <script type="text/javascript">
         function googleTranslateElementInit() {
