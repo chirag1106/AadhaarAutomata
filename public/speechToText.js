@@ -7,11 +7,11 @@ $(document).ready(function () {
 
 
     // language change
-    
-    
+
+
     $('.mic').click(function (e) {
         e.preventDefault();
-        console.log(BASE_URL);
+        // console.log(BASE_URL);
         var src = $(this).attr('src');
         // , BASE_URL+'/mic-listen.png');
         const searchForm = document.querySelector("#queryForm");
@@ -19,9 +19,9 @@ $(document).ready(function () {
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         const recognition = new SpeechRecognition();
         recognition.continuous = true;
-        
+
         recognition.lang = "en-US";
-        
+
         if (src === BASE_URL + '/mic.png') {
             recognition.start();
             $(this).attr('src', BASE_URL + '/mic-listen.png');
@@ -42,7 +42,7 @@ $(document).ready(function () {
 
         recognition.addEventListener("end", endSpeechRecognition);
         function endSpeechRecognition() {
-            // $('.mic').attr('src', BASE_URL + '/mic.png');
+            $('.mic').attr('src', BASE_URL + '/mic.png');
             searchFormInput.focus();
             console.log("Speech recognition service disconnected");
         }
