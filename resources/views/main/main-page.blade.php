@@ -156,7 +156,7 @@
 
 
                     <div class="system-msg-2 update-list-menu">
-                        <button id="rzp-button1" class="btn btn-outline-dark btn-lg"><i class="fas fa-money-bill"></i>Pay Rs.50</button>'
+                        {{-- <button id="rzp-button1" class="btn btn-outline-dark btn-lg"><i class="fas fa-money-bill"></i>Pay Rs.50</button>' --}}
                         <p class="u-names">Update Name</p>
                         <p class="u-fname">Update Father-name</p>
                         <p class="u-dob">Update Date-of-birth</p>
@@ -183,7 +183,7 @@
                             <input type="file" name="image">
                             <button type="submit" class="btn btn-cus-1 mt-2 text-white">Reset</button>
                             <button type="submit" class="btn btn-cus-2 mt-2 text-white updateQueryname">Submit</button>
-                            {{-- <button id="rzp-button1" class="btn btn-outline-dark"><i class="fas fa-money-bill"></i>Pay Rs.50</button> --}}
+                            <button id="rzp-button1" class="btn btn-outline-dark"><i class="fas fa-money-bill"></i>Pay Rs.50</button>
                         </form>
                     </div>
                     <div class="system-msg m-dob" id="modal-dob">
@@ -233,7 +233,7 @@
                             <label for="" class="text-center">Gender Updation</label>
                             <hr>
                             <label for="">Current Gender</label>
-                            <input type="text" value='' disabled>
+                            <input type="text" value="{{ Session::get('date_of_birth') }}" disabled>
                             <label for="">New Gender</label>
                             <input type="text" name="new-name">
                             <select name="document-name" id="">
@@ -254,7 +254,7 @@
                             <label for="" class="text-center">Name Updation</label>
                             <hr>
                             <label for="">Current Name:</label>
-                            <input type="text" value='{{ Session::get('name') }}' disabled>
+                            <input type="text" value='{{ Session::get('name') }}' name="current-name" disabled>
                             <label for="">Enter new name:</label>
                             <input type="text" name="new-name">
                             <select name="document-name" id="">
@@ -453,7 +453,9 @@
                 <input type="text" placeholder="Enter your query here..." name="input_query" id="form-input" class="ms-2">
                 <input type="hidden" name="query_type" value="" id="input-type" class="ms-2">
                 {{-- <input type="submit" value="Submit" class="btn btn-info"> --}}
-                <img src="{{ asset('/mic.png') }}" alt="" class="img-fluid mic" style="width:25px; height:25px">
+                <button id="talk" type="button">
+                    <img src="{{ asset('/mic.png') }}" alt="" class="img-fluid mic" style="width:25px; height:25px">
+                </button>
                 <div class="formQuery-btn">
                     <button id="formTypedQuerySubmit" class="chat-btnx" type="submit">
                         <img class="chat-send" src="bot.png" alt="">
@@ -481,7 +483,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="app.js"></script>
-    <script src="speechToText.js"></script>
+    {{-- <script src="speechToText.js"></script> --}}
     {{-- <script src="text2speech.js"></script> --}}
     <script type="text/javascript">
         function googleTranslateElementInit() {
@@ -494,6 +496,7 @@
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
     </script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="{{ asset('/s2t.js') }}"></script>
     {{-- <script src="payment.js"></script> --}}
 </body>
 

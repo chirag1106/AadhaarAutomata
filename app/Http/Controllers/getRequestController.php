@@ -238,18 +238,29 @@ class getRequestController extends Controller
 
     public function updateForm(Request $request){
 
+        // dd($request['']);
 
-
-        $currentName = $request->input('current-name');
+        $currentName = Session::get('name');
         $newName = $request->input('new-name');
         $documentName = $request->input('document-name');
         $documentNumber = $request->input('document-number');
         $image = $request->file('uploaded-document');
-        $new_image_name = rand().'.'.$image->getClientOriginalExtension();
-        $image->move(public_path('images'), $new_image_name);
+        // $new_image_name = rand().'.'.$image->getClientOriginalExtension();
+        // $image->move(public_path('images'), $new_image_name);
 
-        $imagePath = './images/'.$new_image_name;
+        // $imagePath = './images/'.$new_image_name;
         // dd($imagePath);
+
+        $query = new updateQuery();
+        $query->current_name = $currentName;
+        $query->new_name = $newName;
+        $query->document_name = $documentName;
+        $query->document_number = $documentNumber;
+        // $query->uploaded_document = $image;
+
+        $result = $query->save();
+
+        print_r($result);
 
     }
 }
