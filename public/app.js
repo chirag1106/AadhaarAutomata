@@ -52,11 +52,11 @@ $("document").ready(function () {
             $(".auto-launcher").css("display", "none");
             $(".formQuery-btn").css("display", "block");
             $(".modal").show();
-            var msg = new SpeechSynthesisUtterance();
-            var vartext = $(".system-msg").last();
-            msg.text = vartext.text();
-            msg.lang = language;
-            window.speechSynthesis.speak(msg);
+            // var msg = new SpeechSynthesisUtterance();
+            // var vartext = $(".system-msg").last();
+            // msg.text = vartext.text();
+            // msg.lang = language;
+            // window.speechSynthesis.speak(msg);
             // console.log(msg.text);
         },
     });
@@ -356,12 +356,12 @@ $("document").ready(function () {
     $('#form-name').submit(function (e) {
         e.preventDefault();
         var link = $(this).attr('action');
-                var fd = new FormData();
-        fd.append( 'file', input.files[0] );
+        //         var fd = new FormData();
+        // fd.append( 'file', input.files[0] );
         $.ajax({
             url: link,
             type: 'post',
-            data: new FormData(document.getElementById('form-name')),
+            data: $('#form-name').serialize(),
             beforeSend: function () {
                 console.log(new FormData($('#form-name').get(0)));
             },
